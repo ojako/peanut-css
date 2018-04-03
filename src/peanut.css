@@ -1,6 +1,6 @@
 /* Main CSS file to contain imports */
 /* Third party imports */
-@import url('../node_modules/normalize.css/normalize.css');
+@import url('vendor/normalize.css');
 
 /* Reset */
 @import url('core/_reset.style.css');
