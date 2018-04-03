@@ -1,0 +1,40 @@
+/* Main CSS file to contain imports */
+/* Third party imports */
+@import url('../node_modules/normalize.css/normalize.css');
+
+/* Reset */
+@import url('core/_reset.style.css');
+
+/* Base vars */
+@import url('core/_vars.style.css');
+
+/* Layout and grid */
+@import url('core/_grid.style.css');
+
+/* Type */
+@import url('core/_type.style.css');
+
+/* Forms */
+@import url('core/_forms.style.css');
+
+/* Alerts */
+@import url('core/_alerts.style.css');
+
+/* Navbar */
+@import url('core/_navbar.style.css');
+
+/* Misc */
+@import url('core/_misc.style.css');
+
+/* Helpers */
+@import url('core/_helpers.style.css');
+
+/* Buttons */
+@import url('core/_buttons.style.css');
+
+/* Clearfix */
+.clearfix:after {content:" ";display:block;clear:both;}
+
+body {
+  /* background: var(--brand-primary); */
+}
