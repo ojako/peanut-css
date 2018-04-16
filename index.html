@@ -1,13 +1,28 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Peanut CSS</title>
     <link rel="stylesheet" href="src/peanut.css">
   </head>
   <body>
     <div class="cnt cnt-centre">
-      <h1>Components Page</h1>
+      <header class="banner">
+        <h1>Components Page</h1>
+        <p>A modern micro CSS framework with a few helpful components.</p>
+        <div class="btn-group">
+          <a href="#type" class="btn">Type</a>
+          <a href="#buttons" class="btn">Buttons</a>
+          <a href="#forms" class="btn">Forms</a>
+          <a href="#alerts" class="btn">Alerts</a>
+          <a href="#tables" class="btn">Tables</a>
+          <a href="#misc" class="btn">Misc</a>
+        </div>
+      </header>
 
-      <h2>Type</h2>
+      <h2 id="type">Type</h2>
       <hr>
 
       <div class="font-uc">
@@ -21,55 +36,139 @@
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla deleniti sit sint dicta quos. Deserunt, consequatur at qui ipsa vero dolore. Illo asperiores similique quos! Pariatur eos voluptates quidem incidunt.</p>
       </div>
 
-      <h2>Buttons</h2>
+      <h2 id="buttons">Buttons</h2>
       <hr>
 
       <h3>Basic Set</h3>
 
       <a href="">Plain Anchor</a>
 
-      <button class="btn-link">Button Link</button>
+      <button class="btn btn-link">Button Link</button>
 
-      <button>Simple buttons</button>
+      <button class="btn">Simple buttons</button>
 
-      <button class="btn-primary">Primary Button</button>
+      <button class="btn btn-primary">Primary Button</button>
 
-      <button class="btn-success">Success Button</button>
+      <button class="btn btn-success">Success Button</button>
 
-      <button class="btn-warning">Warning Button</button>
+      <button class="btn btn-warning">Warning Button</button>
 
-      <button class="btn-danger">Danger Button</button>
+      <button class="btn btn-danger">Danger Button</button>
 
-      <button class="btn-info">Info Button</button>
+      <button class="btn btn-info">Info Button</button>
 
       <h3>Button Sizes</h3>
 
-      <button class="btn-xs">Button Extra Small</button>
-      <button class="btn-sm">Button Small</button>
-      <button class="btn-md">Button Medium</button>
-      <button class="btn-lg btn-primary">Button Large</button>
+      <button class="btn btn-xs">Button Extra Small</button>
+      <button class="btn btn-sm">Button Small</button>
+      <button class="btn btn-md">Button Medium</button>
+      <button class="btn btn-lg btn-primary">Button Large</button>
 
       <h3>Button Emphasis</h3>
-      <button class="btn-lg btn-primary btn-emphasis">Button Emphasis</button>
+      <button class="btn btn-lg btn-primary emphasis">Button Emphasis</button>
 
       <h3>Horizontal Button Group</h3>
 
       <div class="btn-group">
-        <button>Simple Button</button>
-        <button>Simple Button</button>
-        <button>Simple Button</button>
+        <button class="btn">Simple Button</button>
+        <button class="btn">Simple Button</button>
+        <button class="btn">Simple Button</button>
+        <button class="btn">Simple Button</button>
       </div>
 
       <h3>Vertical Button Group</h3>
 
-      <div class="btn-group-vertical">
-        <button>Simple Button</button>
-        <button>Simple Button</button>
-        <button>Simple Button</button>
+      <div class="btn-group-v">
+        <button class="btn">Simple Button</button>
+        <button class="btn">Simple Button</button>
+        <button class="btn">Simple Button</button>
+        <button class="btn">Simple Button</button>
       </div>
 
+      <h3>Dropdown Menus</h3>
+      <div class="btn-dropdown">
+        <button
+          onclick="dropdownToggle(this)"
+          class="btn"
+          > Dropdown Menu <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li>
+            <a href="">Longer titles should wrap</a>
+          </li>
+          <li>
+            <hr>
+          </li>
+          <li>
+            <a href="">Link</a>
+          </li>
+          <li>
+            <a href="">Link</a>
+          </li>
+          <li>
+            <button class="btn btn-success">
+              Use buttons instead of anchors
+            </button>
+          </li>
+        </ul>
+      </div>
+      <div class="btn-dropdown">
+        <button
+          onclick="dropdownToggle(this)"
+          class="btn"
+          > <span class="caret"></span> Dropdown Menu Aligned Left
+        </button>
+        <ul class="dropdown-menu dropdown-left">
+          <li>
+            <a href="">Link</a>
+          </li>
+          <li>
+            <a href="">Link</a>
+          </li>
+          <li>
+            <a href="">Link</a>
+          </li>
+        </ul>
+      </div>
+      <div class="btn-dropdown">
+        <button
+          onclick="dropdownToggle(this)"
+          class="btn"
+          > Dropdown Menu Aligned Right <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu dropdown-right">
+          <li>
+            <a href="">Link</a>
+          </li>
+          <li>
+            <a href="">Link</a>
+          </li>
+          <li>
+            <a href="">Link</a>
+          </li>
+        </ul>
+      </div>
+      <div class="btn-dropdown">
+        <button
+          onclick="dropdownToggle(this)"
+          class="btn"
+          > Dropdown Menu Aligned Centre <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu dropdown-centre">
+          <li>
+            <a href="">Link</a>
+          </li>
+          <li>
+            <a href="">Link</a>
+          </li>
+          <li>
+            <a href="">Link</a>
+          </li>
+        </ul>
+      </div>
+      <!-- button.btn.btn-dropdown -->
 
-      <h2>Forms</h2>
+      <h2 id="forms">Forms</h2>
       <hr>
 
       <form>
@@ -117,7 +216,7 @@
         </div> -->
       </form>
 
-      <h2>Alerts</h2>
+      <h2 id="alerts">Alerts</h2>
       <hr>
 
       <div class="alert">
@@ -151,20 +250,113 @@
         </p>
       </div>
 
-      <h2>Misc</h2>
+      <h2 id="tables">Tables</h2>
+      <h3>Regular Table</h3>
+      <div class="group">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Company</th>
+              <th>Contact</th>
+              <th>Country</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Alfreds Futterkiste</td>
+              <td>Maria Anders</td>
+              <td>Germany</td>
+            </tr>
+            <tr>
+              <td>Centro comercial Moctezuma</td>
+              <td>Francisco Chang</td>
+              <td>Mexico</td>
+            </tr>
+            <tr>
+              <td>Ernst Handel</td>
+              <td>Roland Mendel</td>
+              <td>Austria</td>
+            </tr>
+            <tr>
+              <td>Island Trading</td>
+              <td>Helen Bennett</td>
+              <td>UK</td>
+            </tr>
+            <tr>
+              <td>Laughing Bacchus Winecellars</td>
+              <td>Yoshi Tannamuri</td>
+              <td>Canada</td>
+            </tr>
+            <tr>
+              <td>Magazzini Alimentari Riuniti</td>
+              <td>Giovanni Rovelli</td>
+              <td>Italy</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>Striped Table</h3>
+      <div class="group">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Company</th>
+              <th>Contact</th>
+              <th>Country</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Alfreds Futterkiste</td>
+              <td>Maria Anders</td>
+              <td>Germany</td>
+            </tr>
+            <tr>
+              <td>Centro comercial Moctezuma</td>
+              <td>Francisco Chang</td>
+              <td>Mexico</td>
+            </tr>
+            <tr>
+              <td>Ernst Handel</td>
+              <td>Roland Mendel</td>
+              <td>Austria</td>
+            </tr>
+            <tr>
+              <td>Island Trading</td>
+              <td>Helen Bennett</td>
+              <td>UK</td>
+            </tr>
+            <tr>
+              <td>Laughing Bacchus Winecellars</td>
+              <td>Yoshi Tannamuri</td>
+              <td>Canada</td>
+            </tr>
+            <tr>
+              <td>Magazzini Alimentari Riuniti</td>
+              <td>Giovanni Rovelli</td>
+              <td>Italy</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="misc">Misc</h2>
 
       <pre>
         <code>
-          code
-            padding: .2rem .5rem;
-            margin: 0 .2rem;
-            font-size: 90%;
-            white-space: nowrap;
-            background: var(--grey-lighter);
-            border: 1px solid var(--grey-light);
-            border-radius: var(--base-radius);
+code
+  padding: .2rem .5rem;
+  margin: 0 .2rem;
+  font-size: 90%;
+  white-space: nowrap;
+  background: var(--grey-lighter);
+  border: 1px solid var(--grey-light);
+  border-radius: var(--base-radius);
         </code>
       </pre>
     </div>
   </body>
+  <script
+    src="components.js"
+  ></script>
 </html>

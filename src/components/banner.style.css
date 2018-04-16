@@ -1,0 +1,5 @@
+.banner {
+  background: #111;
+  color: var(--light);
+  padding: 3rem var(--base-padding);
+}

@@ -1,35 +1,37 @@
 /* Buttons */
-.btn,
-button {
-  display: inline-block;
+.btn {
   /* background: rgba(158, 89, 89, 0.1); */
-  background: rgba(255, 255, 255, 0.5);
   /* background: linear-gradient(
     rgba(245, 245, 245, 0.8),
     rgba(187, 97, 97, 0.8)
-  ); */
-  border: var(--base-border-width) solid;
+    ); */
+  display: inline-block;
+  background: var(--light);
+  color: var(--grey-dark);
+  border-style:  solid;
+  border-width: var(--base-border-width);
   border-color: var(--grey-light);
   border-radius: var(--base-radius);
-  color: var(--grey-dark);
   padding: var(--btn-padding);
   margin-bottom: var(--base-margin-d);
+  font-weight: normal;
+  text-align: center;
   font-size: 1rem; /* Required to counter effects of whitespace hack */
   transition:
     0.5s background
     ,0.5s box-shadow
   ;
   box-shadow: inset 0 0 transparent;
+  outline: none;
+  /* box-shadow:
+    inset 0em 0em 4em -1.5em
+  ; */
 }
-btn,
-button:hover {
+.btn:hover {
   /* border-color: var(--btn-border-color); */
   cursor: pointer;
   background-position: 100px;
-  box-shadow:
-    inset 0em 0em 4em -1.5em
-  ;
-  /* background:rgba(245, 245, 245, 0.8); */
+  background: var(--grey-lighter);
   /* background: linear-gradient(
     to bottom,
     rgba(245, 245, 245, 0.8),
@@ -55,9 +57,9 @@ button:hover {
 }
 
 /* Links */
-a,
-.link,
-.btn-link {
+a
+,.link
+,.btn-link {
   padding: 0;
   color: var(--brand-primary);
   text-decoration: none;
@@ -66,9 +68,9 @@ a,
   font-size: 1rem;
   background: none;
 }
-a:hover,
-.link:hover,
-.btn-link:hover {
+a:hover
+,.link:hover
+,.btn-link:hover {
   background: none;
   text-decoration: underline;
   box-shadow: none;
@@ -109,7 +111,7 @@ a:hover,
 .btn-warning:hover,
 .btn-info:hover {
   /* Inherit from font colour */
-  background: rgba(255, 255, 255, 0.2);
+  /* background: rgba(255, 255, 255, 0.2); */
   /* inset 0 0 1rem 0 */
 
 }
@@ -125,56 +127,102 @@ a:hover,
 }
 
 /* Group buttons together visually */
-.btn-group {
+.btn-group
+,.btn-group-v {
   display: inline-block;
   margin-bottom: var(--base-margin-d);
-  font-size: 0px; /* Hack to remove whitespace */
+  font-size: 0; /* Hack to remove whitespace */
 }
-.btn-group > * {
+.btn-group > .btn
+,.btn-group-v > .btn {
   margin-right: calc(var(--base-border-width) * -2);
   margin-bottom: 0;
 }
-.btn-group > :first-child:not(:last-child) {
+.btn-group > .btn:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+.btn-group > .btn:not(:last-child) {
+  border-right: 0;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
-  margin-right: 0;
 }
-.btn-group > :last-child:not(:first-child) {
-  border-bottom-left-radius: 0;
+.btn-group > .btn:first-child:not(:last-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 0;
+}
+.btn-group > .btn:last-child:not(:first-child) {
   border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  margin-left: -1px;
 }
-.btn-group > :not(:first-child):not(:last-child) {
-  border-radius: 0;
-  border-left: none;
-  border-right: none;
-  margin-left: calc(var(--base-border-width) * -2);
-}
-/* Vertical */
-.btn-group-vertical {
-  display: block;
-  width: auto;
-  margin-bottom: var(--base-margin-d);
-}
-.btn-group-vertical > * {
-  display: block;
+/* Veritcal */
+.btn-group-v > .btn {
   width: 100%;
-  margin-bottom: 0;
 }
-.btn-group-vertical > :first-child:not(:last-child) {
-  border-bottom-right-radius: 0;
+.btn-group-v > .btn:not(:first-child):not(:last-child) {
+  border-radius: 0;
+  border-bottom: 0;
+}
+.btn-group-v > .btn:first-child:not(:last-child) {
+  border-bottom: 0;
   border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
-.btn-group-vertical > :last-child:not(:first-child) {
+.btn-group-v > .btn:last-child:not(:first-child) {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-}
-.btn-group-vertical > :not(:first-child):not(:last-child) {
-  border-radius: 0;
-  border-top: none;
-  border-bottom: none;
 }
 
-/* .btn-block {
+/* Dropdowns */
+.btn-dropdown {
+  position: relative;
+  display: inline-block;
+}
+.btn-dropdown > .btn ~ ul {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  display: none;
+  background: white;
+  border-style: solid;
+  margin: 0;
+  padding: var(--base-padding-v) 0;
+  min-width: 7rem;
+  text-align: center;
+  border: none;
+  border-radius: var(--base-radius);
+  list-style-type: none;
+  box-shadow: var(--box-shadow);
+}
+.btn-dropdown > .btn.active ~ ul {
+  display: inline-block;
+  z-index: var(--zindex-dropdown);
+}
+/* Dropdown Position */
+.dropdown-menu.dropdown-left {
+  left: 0 !important;
+  right: auto !important;
+}
+.dropdown-menu.dropdown-right {
+  right: 0 !important;
+  left: auto !important;
+}
+.dropdown-menu.dropdown-centre {
+  left: 0 !important;
+  right: 0 !important;
+}
+.btn-dropdown > .btn ~ ul > li > a,
+.btn-dropdown > .btn ~ ul > li > .btn {
   display: block;
-} */
+  width: 100%;
+  padding:
+    var(--btn-dropdown-padding-v)
+    var(--btn-dropdown-padding-h)
+  ;
+  border-radius: 0;
+  border-left: 0;
+  border-right: 0;
+  margin: 0;
+}
 

@@ -32,6 +32,9 @@
 /* Buttons */
 @import url('core/_buttons.style.css');
 
+/* Tables */
+@import url('core/_tables.style.css');
+
 /* Clearfix */
 .clearfix:after {content:" ";display:block;clear:both;}
 

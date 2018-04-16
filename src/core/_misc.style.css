@@ -17,8 +17,8 @@ pre > code {
 }
 
 hr {
-  margin-top: 1rem;
-  margin-bottom: 2rem;
+  padding-top: var(--var-padding-v);
+  padding-bottom: var(--var-padding-v);
   border-width: 0;
   border-top: 1px solid var(--grey-lighter);
 }

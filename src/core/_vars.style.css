@@ -1,40 +1,42 @@
 :root {
   /* Padding and Margins */
-  --base-padding: 1rem;
+  --base-padding:   1rem;
   --base-padding-v: 1rem;
   --base-padding-h: 1rem;
-  --base-margin: 1rem;
-  --base-margin-d: 1rem;
+  --base-margin:    1rem;
+  --base-margin-d:  1rem;
 
   /* Brand */
-  --brand-primary: #88e0bb;
+  --brand-primary:   #88e0bb;
   --brand-secondary: #85b980;
 
   /* Informative Colours */
   --brand-success: #a4db9f;
-  --brand-info: #9be0ec;
-  --brand-danger: #ffa5a5;
+  --brand-info:    rgb(99, 190, 206);
+  --brand-danger:  #ffa5a5;
   --brand-warning: #f8b44e;
 
-  /* Colours */
-  --grey: #b3b3b3;
-  --grey-light: #cecece;
-  --grey-lighter: #f1f1f1;
-  --grey-dark: #333;
+  /* Shade */
+  --light:       #fff;
+  --grey-lighter:#f1f1f1;
+  --grey-light:  #cecece;
+  --grey:        #b3b3b3;
+  --grey-dark:   #333;
   --grey-darker: #222;
+  --dark:        #111;
 
   /* Borders */
   --base-border-width: 1px;
   --base-radius: 3px;
 
   /* Type */
-  --font-weight-light: 300;
+  --font-weight-light:   300;
   --font-weight-regular: 400;
-  --font-weight-heavy: 700;
+  --font-weight-heavy:   700;
 
   /* Font Colours */
   --base-font-color: #999;
-  --text-grey: #888;
+  --text-grey:       #888;
 
   /* Sizes */
   --screen-lg: 900px;
@@ -42,14 +44,30 @@
   --screen-sm: 400px;
 
   /* Buttons */
-  --btn-background: #888;
+  --btn-background:   #888;
   --btn-border-color: rgba(245, 245, 245, 0.8);
-  --btn-color: var(--base-font-color);
-  --btn-padding-v: 0.5rem;
-  --btn-padding-h: 1.5rem;
-  --btn-padding: var(--btn-padding-v) var(--btn-padding-h);
+  --btn-color:          var(--base-font-color);
+  --btn-padding-v:      0.5rem;
+  --btn-padding-h:      1.5rem;
+  --btn-padding:        var(--btn-padding-v) var(--btn-padding-h);
+
+  /* Dropdown Menu */
+  --btn-dropdown-padding-h: var(--base-padding-v);
+  --btn-dropdown-padding-v: calc(var(--base-padding-v) / 2);
 
   /* UI */
-  --detail-dark: var(--grey);
-  --detail-light: var(--grey-light)
+  --detail-dark:  var(--grey);
+  --detail-light: var(--grey-light);
+
+  /* Device Sizes */
+  --screen-sm: 575px;
+  --screen-md: 768px;
+  --screen-lg: 992px;
+
+  /* Box Shadow */
+  --box-shadow: 2px 2px 10px 1px rgba(0,0,0,0.25);
+
+  /* zindex */
+  --zindex-dropdown: 1010;
+  --zindex-overlay: 1020;
 }
