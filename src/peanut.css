@@ -3,37 +3,37 @@
 @import url('vendor/normalize.css');
 
 /* Reset */
-@import url('core/_reset.style.css');
+@import url('core/reset.style.css');
 
 /* Base vars */
-@import url('core/_vars.style.css');
+@import url('core/vars.style.css');
 
 /* Layout and grid */
-@import url('core/_grid.style.css');
+@import url('core/grid.style.css');
 
 /* Type */
-@import url('core/_type.style.css');
+@import url('core/type.style.css');
 
 /* Forms */
-@import url('core/_forms.style.css');
+@import url('core/forms.style.css');
 
 /* Alerts */
-@import url('core/_alerts.style.css');
+@import url('core/alerts.style.css');
 
 /* Navbar */
-@import url('core/_navbar.style.css');
+@import url('core/navbar.style.css');
 
 /* Misc */
-@import url('core/_misc.style.css');
+@import url('core/misc.style.css');
 
 /* Helpers */
-@import url('core/_helpers.style.css');
+@import url('core/helpers.style.css');
 
 /* Buttons */
-@import url('core/_buttons.style.css');
+@import url('core/buttons.style.css');
 
 /* Tables */
-@import url('core/_tables.style.css');
+@import url('core/tables.style.css');
 
 /* Clearfix */
 .clearfix:after {content:" ";display:block;clear:both;}
