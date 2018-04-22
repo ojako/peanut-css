@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Peanut CSS</title>
+    <link rel="stylesheet" href="src/peanut.css">
+  </head>
+  <body>
+    <div class="cnt"></div>
+    <div class="banner banner-default">
+      <header>
+        <h1>Components Page</h1>
+        <p>A little CSS framework with a few helpful components.</p>
+        <div class="btn-group"><a class="btn" href="#type">Type</a><a class="btn" href="#buttons">Buttons</a><a class="btn" href="#forms">Forms</a><a class="btn" href="#alerts">Alerts</a><a class="btn" href="#tables">Tables</a><a class="btn" href="#misc">Misc</a></div>
+      </header>
+    </div>
+    <div class="cnt">
+      <h2 id="type">Type</h2>
+      <hr>
+      <div class="font-uc">
+        <h1>Header 1</h1>
+        <h2>Header 2</h2>
+        <h3>Header 3</h3>
+        <h4>Header 4</h4>
+        <h5>Header 5</h5>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla deleniti sit sint dicta quos. Deserunt, consequatur at qui ipsa vero dolore. Illo asperiores similique quos! Pariatur eos voluptates quidem incidunt. sit sint dicta quos. Deserunt, consequatur at qui ipsa vero dolore. Illo asperiores similique quos!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla deleniti sit sint dicta quos. Deserunt, consequatur at qui ipsa vero dolore. Illo asperiores similique quos! Pariatur eos voluptates quidem incidunt.</p>
+      </div>
+    </div>
+    <div class="cnt">
+      <h2 id="buttons">Buttons</h2>
+      <hr>
+      <h3>Basic Set</h3><a href="">Plain Anchor</a>
+      <button class="btn btn-link">Button Link</button>
+      <button class="btn">Simple buttons</button>
+      <button class="btn btn-primary">Primary Button</button>
+      <button class="btn btn-success">Success Button</button>
+      <button class="btn btn-warning">Warning Button</button>
+      <button class="btn btn-danger">Danger Button</button>
+      <button class="btn btn-info">Info Button</button>
+    </div>
+    <div class="cnt">
+      <h3>Button Sizes</h3>
+      <button class="btn btn-xs">Button Extra Small</button>
+      <button class="btn btn-sm">Button Small</button>
+      <button class="btn btn-md">Button Medium</button>
+      <button class="btn btn-lg btn-primary">Button Large</button>
+      <h3>Button Emphasis</h3>
+      <button class="btn btn-lg btn-primary emphasis">Button Emphasis</button>
+      <h3>Horizontal Button Group</h3>
+      <div class="btn-group">
+        <button class="btn">Simple Button</button>
+        <button class="btn">Simple Button</button>
+        <button class="btn">Simple Button</button>
+        <button class="btn">Simple Button</button>
+      </div>
+      <h3>Vertical Button Group</h3>
+      <div class="btn-group-v">
+        <button class="btn">Simple Button</button>
+        <button class="btn">Simple Button</button>
+        <button class="btn">Simple Button</button>
+        <button class="btn">Simple Button</button>
+      </div>
+      <h3>Dropdown Menus</h3>
+      <div class="btn-dropdown">
+        <button class="btn" onclick="dropdownToggle(this)">Dropdown Menu <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <li><a href="">Longer titles should wrap</a></li>
+          <li>
+            <hr>
+          </li>
+          <li><a href="">Link</a></li>
+          <li><a href="">Link</a></li>
+          <li>
+            <button class="btn btn-success">Use buttons instead of anchors</button>
+          </li>
+        </ul>
+      </div>
+      <div class="btn-dropdown">
+        <button class="btn" onclick="dropdownToggle(this)"><span class="caret"></span> Dropdown Menu Aligned Left</button>
+        <ul class="dropdown-menu dropdown-left">
+          <li><a href="">Link</a></li>
+          <li><a href="">Link</a></li>
+          <li><a href="">Link</a></li>
+        </ul>
+      </div>
+      <div class="btn-dropdown">
+        <button class="btn" onclick="dropdownToggle(this)">Dropdown Menu Aligned Right <span class="caret"></span></button>
+        <ul class="dropdown-menu dropdown-right">
+          <li><a href="">Link</a></li>
+          <li><a href="">Link</a></li>
+          <li><a href="">Link</a></li>
+        </ul>
+      </div>
+      <div class="btn-dropdown">
+        <button class="btn" onclick="dropdownToggle(this)">Dropdown Menu Aligned Centre <span class="caret"></span></button>
+        <ul class="dropdown-menu dropdown-centre">
+          <li><a href="">Link</a></li>
+          <li><a href="">Link</a></li>
+          <li><a href="">Link</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- button.btn.btn-dropdown-->
+    <h2 id="forms">Forms</h2>
+    <hr>
+    <form>
+      <label>Reason for contacting
+        <select>
+          <option value="Option 1">Questions</option>
+          <option value="Option 2">Admiration</option>
+          <option value="Option 3">Can I get your number?</option>
+        </select>
+      </label>
+      <label>Message
+        <textarea placeholder="Example placeholder text"></textarea>
+      </label>
+      <fieldset>
+        <legend>Checkboxes</legend>
+        <label>
+          <input type="checkbox"> This is the input
+        </label>
+        <label>
+          <input type="checkbox"> This is the input
+        </label>
+        <label>
+          <input type="checkbox"> This is the input
+        </label>
+      </fieldset>
+      <fieldset>
+        <legend>Radios</legend>
+        <label>
+          <input type="radio" name="demoRadio1"> This is the input
+        </label>
+        <label>
+          <input type="radio" name="demoRadio1"> This is the input
+        </label>
+        <label>
+          <input type="radio" name="demoRadio1"> This is the input
+        </label>
+        <label>
+          <input type="radio" name="demoRadio1"> This is the input
+        </label>
+      </fieldset>
+      <!--
+      <div class="btn-group">
+      <input class="btn-primary" type="submit" value="Submit">
+      </div>
+      -->
+    </form>
+    <h2 id="alerts">Alerts</h2>
+    <hr>
+    <div class="alert">
+      <h3>Alert</h3>
+      <p>Laborum excepteur voluptate duis laborum qui Lorem culpa. Qui ipsum sint irure do nostrud ut ipsum voluptate cillum duis in. Dolore enim ipsum occaecat nulla minim eiusmod ad id adipisicing adipisicing ipsum sunt enim cillum.</p>
+    </div>
+    <div class="alert alert-success">
+      <h3>Alert Success</h3>
+      <p>Esse id enim consequat occaecat cupidatat adipisicing est excepteur. Amet fugiat aute amet deserunt. Minim aliquip quis Lorem ea cupidatat cillum et laboris Lorem consectetur amet. Sint duis adipisicing ad reprehenderit aliquip ex commodo aute consectetur cillum magna mollit. Nulla tempor qui in ullamco laboris eu aliqua consequat. Nisi nisi occaecat amet laborum.</p>
+    </div>
+    <div class="alert alert-info">
+      <h3>Alert Info</h3>
+      <p>Do adipisicing ullamco laboris adipisicing commodo officia ut eiusmod ea non in nostrud duis incididunt. Nostrud qui esse velit qui sint. Velit voluptate officia dolore nostrud tempor est cillum adipisicing. Elit qui id veniam consectetur ullamco.</p>
+    </div>
+    <div class="alert alert-danger">
+      <h3>Alert Danger</h3>
+      <p>Est magna velit laboris do commodo mollit cupidatat magna culpa pariatur ipsum in. Dolor in cupidatat aute magna aliquip et amet ut exercitation veniam. Cupidatat exercitation do adipisicing reprehenderit exercitation mollit est id nulla. Aliquip nostrud laboris proident velit do ex magna quis. Duis do incididunt deserunt ipsum. Do commodo officia ut ex nulla. Consequat duis ea qui sunt ad consequat nostrud veniam dolore.</p>
+    </div>
+    <div class="alert alert-warning">
+      <h3>Alert Warning</h3>
+      <p>Ullamco dolor adipisicing excepteur ullamco proident reprehenderit est excepteur duis eiusmod excepteur eiusmod laborum minim. Deserunt aliqua officia duis veniam reprehenderit cupidatat. Irure pariatur qui reprehenderit nostrud minim est ullamco dolore cupidatat duis. Ipsum sit culpa irure adipisicing ipsum nisi minim non sunt elit tempor cillum. Magna commodo do tempor minim et eu occaecat non ex duis exercitation id.</p>
+    </div>
+    <h2 id="tables">Tables</h2>
+    <h3>Regular Table</h3>
+    <div class="group">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Contact</th>
+            <th>Country</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Alfreds Futterkiste</td>
+            <td>Maria Anders</td>
+            <td>Germany</td>
+          </tr>
+          <tr>
+            <td>Centro comercial Moctezuma</td>
+            <td>Francisco Chang</td>
+            <td>Mexico</td>
+          </tr>
+          <tr>
+            <td>Ernst Handel</td>
+            <td>Roland Mendel</td>
+            <td>Austria</td>
+          </tr>
+          <tr>
+            <td>Island Trading</td>
+            <td>Helen Bennett</td>
+            <td>UK</td>
+          </tr>
+          <tr>
+            <td>Laughing Bacchus Winecellars</td>
+            <td>Yoshi Tannamuri</td>
+            <td>Canada</td>
+          </tr>
+          <tr>
+            <td>Magazzini Alimentari Riuniti</td>
+            <td>Giovanni Rovelli</td>
+            <td>Italy</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <h3>Striped Table</h3>
+    <div class="group">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Contact</th>
+            <th>Country</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Alfreds Futterkiste</td>
+            <td>Maria Anders</td>
+            <td>Germany</td>
+          </tr>
+          <tr>
+            <td>Centro comercial Moctezuma</td>
+            <td>Francisco Chang</td>
+            <td>Mexico</td>
+          </tr>
+          <tr>
+            <td>Ernst Handel</td>
+            <td>Roland Mendel</td>
+            <td>Austria</td>
+          </tr>
+          <tr>
+            <td>Island Trading</td>
+            <td>Helen Bennett</td>
+            <td>UK</td>
+          </tr>
+          <tr>
+            <td>Laughing Bacchus Winecellars</td>
+            <td>Yoshi Tannamuri</td>
+            <td>Canada</td>
+          </tr>
+          <tr>
+            <td>Magazzini Alimentari Riuniti</td>
+            <td>Giovanni Rovelli</td>
+            <td>Italy</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <h2 id="misc">Misc</h2>
+    <pre>\n              </pre>
+  </body>
+  <script src="components.js"></script>
+</html>

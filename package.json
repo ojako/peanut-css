@@ -1,8 +1,16 @@
 {
-    "name": "peanut-css",
-    "author": "Jako",
-    "version": "0.0.3",
-    "description": "Micro CSS framework",
-    "keywords": "css",
-    "homepage": "https://ojako.github.io/peanut-css/"
+  "name": "peanut-css",
+  "author": "Jako",
+  "version": "0.0.3",
+  "description": "Micro CSS framework",
+  "license": "BSD-3-Clause",
+  "keywords": "css",
+  "homepage": "https://ojako.github.io/peanut-css/",
+  "repository": "https://github.com/ojako/peanut-css.git",
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-clean-css": "^3.9.3",
+    "gulp-pug": "^4.0.1",
+    "normalize.css": "^8.0.0"
+  }
 }

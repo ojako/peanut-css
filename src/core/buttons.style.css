@@ -209,8 +209,8 @@ a:hover
   left: auto !important;
 }
 .dropdown-menu.dropdown-centre {
-  left: 0 !important;
   right: 0 !important;
+  left: 0 !important;
 }
 .btn-dropdown > .btn ~ ul > li > a,
 .btn-dropdown > .btn ~ ul > li > .btn {

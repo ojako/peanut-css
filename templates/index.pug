@@ -1,0 +1,256 @@
+//- Mixins
+mixin article()
+  h2 Something
+  p Lorem 
+
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    title Peanut CSS
+    link(rel='stylesheet', href='src/peanut.css')
+  body
+    .cnt
+    .banner.banner-default
+      header
+        h1 Components Page
+        p A little CSS framework with a few helpful components.
+        .btn-group
+          a.btn(href='#type') Type
+          a.btn(href='#buttons') Buttons
+          a.btn(href='#forms') Forms
+          a.btn(href='#alerts') Alerts
+          a.btn(href='#tables') Tables
+          a.btn(href='#misc') Misc
+    .cnt
+      h2#type Type
+      hr
+      .font-uc
+        h1 Header 1
+        h2 Header 2
+        h3 Header 3
+        h4 Header 4
+        h5 Header 5
+        p
+          | Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla deleniti sit sint dicta quos. Deserunt, consequatur at qui ipsa vero dolore. Illo asperiores similique quos! Pariatur eos voluptates quidem incidunt. sit sint dicta quos. Deserunt, consequatur at qui ipsa vero dolore. Illo asperiores similique quos!
+        p
+          | Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla deleniti sit sint dicta quos. Deserunt, consequatur at qui ipsa vero dolore. Illo asperiores similique quos! Pariatur eos voluptates quidem incidunt.
+    .cnt
+      h2#buttons Buttons
+      hr
+      h3 Basic Set
+      a(href='') Plain Anchor
+      button.btn.btn-link Button Link
+      button.btn Simple buttons
+      button.btn.btn-primary Primary Button
+      button.btn.btn-success Success Button
+      button.btn.btn-warning Warning Button
+      button.btn.btn-danger Danger Button
+      button.btn.btn-info Info Button
+    .cnt
+      h3 Button Sizes
+      button.btn.btn-xs Button Extra Small
+      button.btn.btn-sm Button Small
+      button.btn.btn-md Button Medium
+      button.btn.btn-lg.btn-primary Button Large
+      h3 Button Emphasis
+      button.btn.btn-lg.btn-primary.emphasis Button Emphasis
+      h3 Horizontal Button Group
+      .btn-group
+        button.btn Simple Button
+        button.btn Simple Button
+        button.btn Simple Button
+        button.btn Simple Button
+      h3 Vertical Button Group
+      .btn-group-v
+        button.btn Simple Button
+        button.btn Simple Button
+        button.btn Simple Button
+        button.btn Simple Button
+      h3 Dropdown Menus
+      .btn-dropdown
+        button.btn(onclick='dropdownToggle(this)')
+          | Dropdown Menu 
+          span.caret
+        ul.dropdown-menu
+          li
+            a(href='') Longer titles should wrap
+          li
+            hr
+          li
+            a(href='') Link
+          li
+            a(href='') Link
+          li
+            button.btn.btn-success
+              | Use buttons instead of anchors
+      .btn-dropdown
+        button.btn(onclick='dropdownToggle(this)')
+          span.caret
+          |  Dropdown Menu Aligned Left
+        ul.dropdown-menu.dropdown-left
+          li
+            a(href='') Link
+          li
+            a(href='') Link
+          li
+            a(href='') Link
+      .btn-dropdown
+        button.btn(onclick='dropdownToggle(this)')
+          | Dropdown Menu Aligned Right 
+          span.caret
+        ul.dropdown-menu.dropdown-right
+          li
+            a(href='') Link
+          li
+            a(href='') Link
+          li
+            a(href='') Link
+      .btn-dropdown
+        button.btn(onclick='dropdownToggle(this)')
+          | Dropdown Menu Aligned Centre 
+          span.caret
+        ul.dropdown-menu.dropdown-centre
+          li
+            a(href='') Link
+          li
+            a(href='') Link
+          li
+            a(href='') Link
+    // button.btn.btn-dropdown
+    h2#forms Forms
+    hr
+    form
+      label
+        | Reason for contacting
+        select
+          option(value='Option 1') Questions
+          option(value='Option 2') Admiration
+          option(value='Option 3') Can I get your number?
+      label
+        | Message
+        textarea(placeholder='Example placeholder text')
+      fieldset
+        legend Checkboxes
+        label
+          input(type='checkbox')
+          |  This is the input
+        label
+          input(type='checkbox')
+          |  This is the input
+        label
+          input(type='checkbox')
+          |  This is the input
+      fieldset
+        legend Radios
+        label
+          input(type='radio', name='demoRadio1')
+          |  This is the input
+        label
+          input(type='radio', name='demoRadio1')
+          |  This is the input
+        label
+          input(type='radio', name='demoRadio1')
+          |  This is the input
+        label
+          input(type='radio', name='demoRadio1')
+          |  This is the input
+      //
+        <div class="btn-group">
+        <input class="btn-primary" type="submit" value="Submit">
+        </div>
+    h2#alerts Alerts
+    hr
+    .alert
+      h3 Alert
+      p
+        | Laborum excepteur voluptate duis laborum qui Lorem culpa. Qui ipsum sint irure do nostrud ut ipsum voluptate cillum duis in. Dolore enim ipsum occaecat nulla minim eiusmod ad id adipisicing adipisicing ipsum sunt enim cillum.
+    .alert.alert-success
+      h3 Alert Success
+      p
+        | Esse id enim consequat occaecat cupidatat adipisicing est excepteur. Amet fugiat aute amet deserunt. Minim aliquip quis Lorem ea cupidatat cillum et laboris Lorem consectetur amet. Sint duis adipisicing ad reprehenderit aliquip ex commodo aute consectetur cillum magna mollit. Nulla tempor qui in ullamco laboris eu aliqua consequat. Nisi nisi occaecat amet laborum.
+    .alert.alert-info
+      h3 Alert Info
+      p
+        | Do adipisicing ullamco laboris adipisicing commodo officia ut eiusmod ea non in nostrud duis incididunt. Nostrud qui esse velit qui sint. Velit voluptate officia dolore nostrud tempor est cillum adipisicing. Elit qui id veniam consectetur ullamco.
+    .alert.alert-danger
+      h3 Alert Danger
+      p
+        | Est magna velit laboris do commodo mollit cupidatat magna culpa pariatur ipsum in. Dolor in cupidatat aute magna aliquip et amet ut exercitation veniam. Cupidatat exercitation do adipisicing reprehenderit exercitation mollit est id nulla. Aliquip nostrud laboris proident velit do ex magna quis. Duis do incididunt deserunt ipsum. Do commodo officia ut ex nulla. Consequat duis ea qui sunt ad consequat nostrud veniam dolore.
+    .alert.alert-warning
+      h3 Alert Warning
+      p
+        | Ullamco dolor adipisicing excepteur ullamco proident reprehenderit est excepteur duis eiusmod excepteur eiusmod laborum minim. Deserunt aliqua officia duis veniam reprehenderit cupidatat. Irure pariatur qui reprehenderit nostrud minim est ullamco dolore cupidatat duis. Ipsum sit culpa irure adipisicing ipsum nisi minim non sunt elit tempor cillum. Magna commodo do tempor minim et eu occaecat non ex duis exercitation id.
+    h2#tables Tables
+    h3 Regular Table
+    .group
+      table.table
+        thead
+          tr
+            th Company
+            th Contact
+            th Country
+        tbody
+          tr
+            td Alfreds Futterkiste
+            td Maria Anders
+            td Germany
+          tr
+            td Centro comercial Moctezuma
+            td Francisco Chang
+            td Mexico
+          tr
+            td Ernst Handel
+            td Roland Mendel
+            td Austria
+          tr
+            td Island Trading
+            td Helen Bennett
+            td UK
+          tr
+            td Laughing Bacchus Winecellars
+            td Yoshi Tannamuri
+            td Canada
+          tr
+            td Magazzini Alimentari Riuniti
+            td Giovanni Rovelli
+            td Italy
+    h3 Striped Table
+    .group
+      table.table.table-striped
+        thead
+          tr
+            th Company
+            th Contact
+            th Country
+        tbody
+          tr
+            td Alfreds Futterkiste
+            td Maria Anders
+            td Germany
+          tr
+            td Centro comercial Moctezuma
+            td Francisco Chang
+            td Mexico
+          tr
+            td Ernst Handel
+            td Roland Mendel
+            td Austria
+          tr
+            td Island Trading
+            td Helen Bennett
+            td UK
+          tr
+            td Laughing Bacchus Winecellars
+            td Yoshi Tannamuri
+            td Canada
+          tr
+            td Magazzini Alimentari Riuniti
+            td Giovanni Rovelli
+            td Italy
+    h2#misc Misc
+    pre.
+      \n              
+  script(src='components.js')
