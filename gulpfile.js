@@ -9,6 +9,7 @@ const sass = require('gulp-sass');
 const pug = require('gulp-pug');
 const rename = require('gulp-rename');
 const del = require('del');
+const zip = require('gulp-zip');
 
 // Files to be processed
 const paths = {
@@ -35,9 +36,23 @@ gulp.task('clean', () =>
   del(paths.generatedFiles.src)
 );
 
+
+// Create archive of essential files
+gulp.task('zip', () =>
+  gulp
+    .src([
+      'dist/**/*',
+      'index.html',
+    ])
+    .pipe(zip('archive.zip', {
+      compress: true,
+    }))
+    .pipe(gulp.dest(paths.styles.dest))
+);
+
 // Minify CSS
-gulp.task('minify', () => {
-  return gulp
+gulp.task('minify', () =>
+  gulp
     .src('dist/peanut.css')
     .pipe(cleanCSS({
       compatibility: '*',
@@ -45,42 +60,43 @@ gulp.task('minify', () => {
       format: 'minify',
     }))
     .pipe(rename('peanut.min.css'))
-    .pipe(gulp.dest(paths.styles.dest), ['default']);
-});
+    .pipe(gulp.dest(paths.styles.dest), ['default'])
+);
 
 // Compile SCSS
-gulp.task('sass', () => {
-  return gulp
+gulp.task('sass', () =>
+  gulp
     .src(paths.styles.glob)
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest(paths.styles.dest));
-});
+    .pipe(gulp.dest(paths.styles.dest))
+);
 
 // Compile pug
-gulp.task('views', () => {
-  return gulp
+gulp.task('views', () =>
+  gulp
     .src(paths.templates.src)
     .pipe(pug({
       pretty: true,
     }))
-    .pipe(gulp.dest(paths.templates.dest));
-});
+    .pipe(gulp.dest(paths.templates.dest))
+);
 
 // Watch files
-gulp.task('watch', () => {
-  gulp.watch(
-    [
-      paths.styles.glob,
-      paths.templates.glob,
-    ],
-    gulp.series('default')
-  );
-});
+gulp.task('watch', () =>
+  gulp
+    .watch(
+      [
+        paths.styles.glob,
+        paths.templates.glob,
+      ],
+  gulp
+    .series('default'))
+);
 
 // Do the stuff
-gulp.task(
-  'default',
+gulp.task('default',
   gulp.series(
+    'clean',
     'views',
     'sass',
     'minify',
