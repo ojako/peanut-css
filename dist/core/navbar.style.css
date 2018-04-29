@@ -1,0 +1,12 @@
+.navbar {
+  /* border: var(--base-border-width) solid var(--grey-light); */
+  box-sizing: padding-box;
+  background: linear-gradient(3deg, var(--grey-darker), var(--grey-dark)), linear-gradient(70deg, var(--grey-darker), var(--grey-dark)); }
+
+.navbar > .btn-group {
+  margin-bottom: 0; }
+
+.navbar > .btn-group > * {
+  margin-bottom: 0;
+  border-bottom: 0;
+  border-top: 0; }

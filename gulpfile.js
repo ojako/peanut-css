@@ -1,13 +1,13 @@
 /* global require */
 /*jslint node:true */
-
 'use strict';
 
 const gulp = require('gulp');
 const watch = require('gulp-watch');
 const cleanCSS = require('gulp-clean-css');
-const scss = require('gulp-sass');
+const sass = require('gulp-sass');
 const pug = require('gulp-pug');
+const rename = require('gulp-rename');
 const del = require('del');
 
 // Files to be processed
@@ -19,64 +19,69 @@ const paths = {
     ],
   },
   styles: {
-    src: 'src/peanut.css',
-    dest: 'dist/peanut.css',
+    glob: 'src/**/*.scss',
+    src: 'src',
+    dest: 'dist',
   },
   templates: {
-    src: 'templates/index.pug',
-    dest: '',
+    glob: 'templates/index.pug',
+    src: 'templates',
+    dest: './',
   },
 }
 
 // Kill generated files
-function clean() {
-  return del(paths.generatedFiles.src);
-}
-
-function watch() {
-  gulp.watch([
-    paths.styles.src,
-    paths.templates.src,
-  ])
-}
+gulp.task('clean', () => 
+  del(paths.generatedFiles.src)
+);
 
 gulp.task('minify', () => {
-  return gulp.src('src/peanut.css')
+  return gulp
+    .src('dist/peanut.css')
     .pipe(cleanCSS({
       compatibility: '*',
       sourceMap: true,
-      format: 'beautify',
+      format: 'minify',
     }))
-    .pipe(gulp.dest('dist'));
+    .pipe(rename('peanut.min.css'))
+    .pipe(gulp.dest(paths.styles.dest));
 });
 
 gulp.task('watch', () => {
-  return watch('src/**/*', [
-    'views',
-    'cssSASS',
-  ]);
+  gulp.watch(paths.styles.src)
+    .series('sass');
+  
+  gulp.watch(paths.templates.src)
+    .series('views');
+//  return watch('src/**/*', [
+//    'views',
+//    'cssSASS',
+//  ]);
 });
 
-gulp.task('cssSASS', () => {
-   return gulp.src('src/**/*.scss')
+gulp.task('sass', () => {
+  return gulp
+    .src(paths.styles.glob)
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('dist/css'));
+    .pipe(gulp.dest(paths.styles.dest));
 });
 
 gulp.task('views', () => {
-  return gulp.src('templates/index.pug')
+  return gulp
+    .src(paths.templates.glob)
     .pipe(pug({
       pretty: true,
     }))
-    .pipe(gulp.dest('./'));
+    .pipe(gulp.dest(paths.templates.dest));
 });
 
-gulp.task('default', defaultTask);
-
-//watch() => {
-//  //
-//}
-
-function defaultTask(done) {
-  done();
-}
+gulp.task(
+  'default',
+  gulp.series(
+    'clean',
+    'views',
+    'sass',
+    'minify',
+//    'watch',
+  )
+);

@@ -1,0 +1,39 @@
+.cnt {
+  /*  display: block;*/
+  max-width: var(--screen-max);
+  padding: 0 var(--base-padding); }
+
+.cnt-full {
+  padding: 0 var(--base-padding); }
+
+.cnt-centre {
+  /* display: inline-block; */
+  margin: 0 auto; }
+
+.cnt-inline {
+  display: inline-block;
+  padding: --base-padding; }
+
+.block {
+  display: block;
+  width: 100%; }
+
+/* Give a group a standard layout */
+.group {
+  margin-bottom: var(--base-margin-d); }
+
+/* Pull */
+.pull-left {
+  float: left; }
+
+.pull-right {
+  float: right; }
+
+@media screen and (max-width: var(--screen-lg-max)) {
+  max-width: 1024px; }
+
+@media screen and (max-width: var(--screen-md-max)) {
+  max-width: 900px; }
+
+@media screen and (max-width: var(--screen-sm-max)) {
+  /* max-width: */ }

@@ -1,0 +1,14 @@
+.table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: left; }
+
+.table td, .table th {
+  padding: var(--base-padding-v) var(--base-padding-h); }
+
+.table thead {
+  background: var(--grey-dark);
+  color: var(--light); }
+
+.table.table-striped tr:nth-child(even) {
+  background-color: var(--grey-lighter); }

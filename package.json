@@ -12,6 +12,7 @@
     "gulp": "^4.0.0",
     "gulp-clean-css": "^3.9.3",
     "gulp-pug": "^4.0.1",
+    "gulp-rename": "^1.2.2",
     "gulp-sass": "^4.0.1",
     "gulp-watch": "^5.0.0",
     "normalize.css": "^8.0.0"

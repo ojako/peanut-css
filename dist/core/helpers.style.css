@@ -1,0 +1,40 @@
+.sticky-top {
+  position: sticky;
+  top: 1px;
+  z-index: 9999; }
+
+.block {
+  display: block; }
+
+.inline-block {
+  display: inline-block; }
+
+.inline {
+  display: inline; }
+
+/* Replace with something else */
+.caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  /* margin-left: 2px; */
+  vertical-align: middle;
+  border-top: 4px dashed;
+  border-top: 4px solid\9;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent; }
+
+.btn.active > .caret {
+  transform: rotateX(180deg); }
+
+.emphasis {
+  box-shadow: var(--box-shadow) !important; }
+
+/* @supports ((position: -webkit-sticky) or (position: sticky)) {
+  .sticky-top {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+  }
+} */
