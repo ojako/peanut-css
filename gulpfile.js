@@ -5,6 +5,7 @@
 const gulp = require('gulp');
 const watch = require('gulp-watch');
 const cleanCSS = require('gulp-clean-css');
+const sourcemaps = require('gulp-sourcemaps');
 const sass = require('gulp-sass');
 const pug = require('gulp-pug');
 const rename = require('gulp-rename');
@@ -14,6 +15,10 @@ const zip = require('gulp-zip');
 // Files to be processed
 const paths = {
   generatedFiles: {
+    glob: [
+      'dist/**/*',
+      'index.html',
+    ],
     src: [
       'dist', 
       'index.html',
@@ -36,14 +41,10 @@ gulp.task('clean', () =>
   del(paths.generatedFiles.src)
 );
 
-
 // Create archive of essential files
 gulp.task('zip', () =>
   gulp
-    .src([
-      'dist/**/*',
-      'index.html',
-    ])
+    .src(paths.generatedFiles.glob)
     .pipe(zip('archive.zip', {
       compress: true,
     }))
@@ -67,7 +68,9 @@ gulp.task('minify', () =>
 gulp.task('sass', () =>
   gulp
     .src(paths.styles.glob)
+    .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest(paths.styles.dest))
 );
 
