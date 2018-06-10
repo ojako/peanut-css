@@ -11,6 +11,8 @@ const pug = require('gulp-pug');
 const rename = require('gulp-rename');
 const del = require('del');
 const zip = require('gulp-zip');
+const newer = require('gulp-newer');
+const browserSync = require('browser-sync').create();
 
 // Files to be processed
 const paths = {
@@ -20,7 +22,7 @@ const paths = {
       'index.html',
     ],
     src: [
-      'dist', 
+      'dist',
       'index.html',
     ],
   },
@@ -37,7 +39,7 @@ const paths = {
 }
 
 // Kill generated files
-gulp.task('clean', () => 
+gulp.task('clean', () =>
   del(paths.generatedFiles.src)
 );
 
@@ -78,6 +80,7 @@ gulp.task('sass', () =>
 gulp.task('views', () =>
   gulp
     .src(paths.templates.src)
+    .pipe(newer(paths.templates.dest))
     .pipe(pug({
       pretty: true,
     }))
@@ -92,16 +95,47 @@ gulp.task('watch', () =>
         paths.styles.glob,
         paths.templates.glob,
       ],
+      gulp.series('dev')
+    )
+);
+
+// Browser sync
+gulp.task('sync', () => {
+  browserSync.init({
+    server: {
+      baseDir: './'
+    }
+  })
+
   gulp
-    .series('default'))
+    .watch(
+      [paths.styles.glob, paths.templates.glob],
+      gulp
+        .series('dev')
+    )
+
+  gulp
+    .watch(paths.generatedFiles.glob)
+    .on('change', browserSync.reload);
+})
+
+// Quick build for dev
+gulp.task('dev',
+  gulp
+    .series(
+      'views',
+      'sass',
+      'minify',
+    )
 );
 
 // Do the stuff
 gulp.task('default',
-  gulp.series(
-    'clean',
-    'views',
-    'sass',
-    'minify',
-  )
+  gulp
+    .series(
+      'clean',
+      'views',
+      'sass',
+      'minify',
+    )
 );
