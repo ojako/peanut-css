@@ -1,3 +1,5 @@
+- var npm = 'node_modules/'
+
 doctype html
 html(lang='en')
 
@@ -6,16 +8,17 @@ html(lang='en')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     meta(http-equiv='X-UA-Compatible', content='ie=edge')
     title Peanut CSS
+    // Core dist
     link(rel='stylesheet', href='dist/peanut.css')
+    // HighlightJS CSS
+    link(rel='stylesheet', href='node_modules/highlightjs/styles/atelier-lakeside.dark.css')
 
   body
 
     // Header
     include includes/header.pug
 
-    main
-
-      h2 Hey
+    main.page
 
       // Type
       include includes/type.pug
@@ -35,8 +38,15 @@ html(lang='en')
       // Columns
       include includes/grid.pug
 
+      // Cards
+      include includes/cards.pug
+
       // Miscs
       include includes/misc.pug
 
   // Component scripts
   script(src='components.js')
+  script(src='node_modules/highlightjs/highlight.pack.min.js')
+  script.
+    // Highlight code blocks
+    hljs.initHighlightingOnLoad();

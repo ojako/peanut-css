@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Peanut CSS</title>
+    <!-- Core dist-->
     <link rel="stylesheet" href="dist/peanut.css">
+    <!-- HighlightJS CSS-->
+    <link rel="stylesheet" href="node_modules/highlightjs/styles/atelier-lakeside.dark.css">
   </head>
   <body>
     <!-- Header-->
@@ -18,8 +21,7 @@
         </header>
       </div>
     </div>
-    <main>
-      <h2>Hey</h2>
+    <main class="page">
       <!-- Type-->
       <section class="cnt">
         <h2 id="type">Type</h2>
@@ -271,10 +273,18 @@
           </div>
         </div>
       </section>
+      <!-- Cards-->
+      <div class="cnt">
+        <div class="card">
+          <h5>Card Title</h5>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis rem modi ratione tenetur consequatur sapiente obcaecati asperiores, odio amet quam aperiam dignissimos numquam provident quos eligendi doloremque porro tempora consequuntur?</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga repellendus non eius quasi eveniet vero obcaecati, earum necessitatibus veniam explicabo voluptatem est facere iste suscipit excepturi cum vitae, perferendis quas?</p>
+        </div>
+      </div>
       <!-- Miscs-->
       <section class="cnt">
         <h2 id="misc">Misc</h2>
-        <pre><code>pre
+        <pre><code class="pug">pre
   code
     // Something</code></pre>
       </section>
@@ -282,4 +292,9 @@
   </body>
   <!-- Component scripts-->
   <script src="components.js"></script>
+  <script src="node_modules/highlightjs/highlight.pack.min.js"></script>
+  <script>
+    // Highlight code blocks
+    hljs.initHighlightingOnLoad();
+  </script>
 </html>

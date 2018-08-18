@@ -21,5 +21,11 @@
     "gulp-zip": "^4.1.0",
     "normalize.css": "^8.0.0",
     "sass-lint": "^1.12.1"
+  },
+  "dependencies": {
+    "@types/node": "^10.5.7",
+    "gulp-sass-lint": "^1.4.0",
+    "gulp-version-number": "^0.1.7",
+    "highlightjs": "^9.10.0"
   }
 }

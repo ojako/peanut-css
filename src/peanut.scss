@@ -4,37 +4,37 @@
 @import url('../node_modules/normalize.css/normalize.css');
 
 /* Reset */
-@import url('core/reset.style.css');
+@import 'core/reset.style';
 
 /* Base vars */
-@import url('core/vars.style.css');
+@import 'core/vars.style';
 
 /* Layout and grid */
-@import url('core/grid.style.css');
+@import 'core/grid.style';
 
 /* Type */
-@import url('core/type.style.css');
+@import 'core/type.style';
 
 /* Forms */
-@import url('core/forms.style.css');
+@import 'core/forms.style';
 
 /* Alerts */
-@import url('core/alerts.style.css');
+@import 'core/alerts.style';
 
 /* Navbar */
-@import url('core/navbar.style.css');
+@import 'core/navbar.style';
 
 /* Misc */
-@import url('core/misc.style.css');
+@import 'core/misc.style';
 
 /* Helpers */
-@import url('core/helpers.style.css');
+@import 'core/helpers.style';
 
 /* Buttons */
-@import url('core/buttons.style.css');
+@import 'core/buttons.style';
 
 /* Tables */
-@import url('core/tables.style.css');
+@import 'core/tables.style';
 
 /* Clearfix */
 .clearfix:after {content:" ";display:block;clear:both;}

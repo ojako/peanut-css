@@ -13,6 +13,8 @@ const del = require('del');
 const zip = require('gulp-zip');
 const newer = require('gulp-newer');
 const browserSync = require('browser-sync').create();
+const sassLint = require('gulp-sass-lint');
+const version = require('gulp-version-number');
 
 // Files to be processed
 const paths = {
@@ -72,9 +74,18 @@ gulp.task('sass', () =>
     .src(paths.styles.glob)
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
-    .pipe(sourcemaps.write())
+    .pipe(sourcemaps.write(paths.styles.dest))
     .pipe(gulp.dest(paths.styles.dest))
 );
+
+// Lint SCSS
+gulp.task('sass-lint', () =>
+  gulp
+    .src(paths.styles.glob)
+    .pipe(sassLint())
+    // .pipe(sassLint.format())
+    // .pipe(sassLint.failOnError())
+)
 
 // Compile pug
 gulp.task('views', () =>
@@ -97,7 +108,12 @@ gulp.task('watch', () =>
       ],
       gulp.series('dev')
     )
-);
+  );
+
+// gulp.task('version', () => {
+//   gulp
+//     .pipe(gulp.dest('build'))
+//   });
 
 // Browser sync
 gulp.task('sync', () => {
@@ -117,7 +133,20 @@ gulp.task('sync', () => {
   gulp
     .watch(paths.generatedFiles.glob)
     .on('change', browserSync.reload);
-})
+  })
+
+// gulp.task('version',
+//   gulp
+//     .series(
+//       'default',
+//       'createImage',
+//       'vTest',
+//       'fTest'
+//     )
+// );
+
+
+// gulp.task('createImage',)
 
 // Quick build for dev
 gulp.task('dev',
@@ -125,6 +154,7 @@ gulp.task('dev',
     .series(
       'views',
       'sass',
+      'sass-lint',
       'minify',
     )
 );
@@ -136,6 +166,7 @@ gulp.task('default',
       'clean',
       'views',
       'sass',
+      'sass-lint',
       'minify',
     )
 );
