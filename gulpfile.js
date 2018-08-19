@@ -83,9 +83,9 @@ gulp.task('sass-lint', () =>
   gulp
     .src(paths.styles.glob)
     .pipe(sassLint())
-    // .pipe(sassLint.format())
-    // .pipe(sassLint.failOnError())
-)
+    .pipe(sassLint.format())
+    .pipe(sassLint.failOnError())
+);
 
 // Compile pug
 gulp.task('views', () =>

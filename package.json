@@ -4,9 +4,18 @@
   "version": "0.0.5",
   "description": "Micro CSS framework",
   "license": "BSD-3-Clause",
-  "keywords": "css",
+  "keywords": [
+    "css",
+    "scss"
+  ],
   "homepage": "https://ojako.github.io/peanut-css/",
   "repository": "https://github.com/ojako/peanut-css.git",
+  "scripts": {
+    "start": "gulp",
+    "setup": "npm install; yarn install; node_modules/selenium-standalone/bin/selenium-standalone install",
+    "serve": "gulp serve",
+    "test": "node_modules/selenium-standalone/bin/selenium-standalone install"
+  },
   "devDependencies": {
     "browser-sync": "^2.24.4",
     "del": "^3.0.0",
@@ -24,8 +33,10 @@
   },
   "dependencies": {
     "@types/node": "^10.5.7",
+    "gemini": "^5.8.0",
     "gulp-sass-lint": "^1.4.0",
     "gulp-version-number": "^0.1.7",
-    "highlightjs": "^9.10.0"
+    "highlightjs": "^9.10.0",
+    "phantomjs": "^2.1.7"
   }
 }
