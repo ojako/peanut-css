@@ -1,11 +1,1 @@
-.banner {
-  padding: var(--base-padding); }
-
-.banner.banner-dark {
-  background: black; }
-
-* {
-  color: red;
-  background: blue; }
-
-/*# sourceMappingURL=../dist/core/banner.style.css.map */
+.banner{padding:var(--base-padding)}.banner.banner-dark{background:#000}*{background:#00f;color:red}

@@ -5,6 +5,9 @@
 const gulp = require('gulp');
 const watch = require('gulp-watch');
 const cleanCSS = require('gulp-clean-css');
+const postCSS = require('gulp-postcss');
+const cssNano = require('cssnano');
+const autoprefixer = require('autoprefixer');
 const sourcemaps = require('gulp-sourcemaps');
 const sass = require('gulp-sass');
 const pug = require('gulp-pug');
@@ -66,6 +69,20 @@ gulp.task('minify', () =>
     }))
     .pipe(rename('peanut.min.css'))
     .pipe(gulp.dest(paths.styles.dest), ['default'])
+);
+
+gulp.task('postcss', () => {
+  const processors = [
+    autoprefixer,
+    cssNano,
+  ]
+
+  return gulp
+    .src(paths.styles.glob)
+    .pipe(sass())
+    .pipe(postCSS(processors))
+    .pipe(gulp.dest(paths.styles.dest))
+  }
 );
 
 // Compile SCSS

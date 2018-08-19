@@ -27,8 +27,8 @@ Gemini scripts and screens are located under the `gemini` folder
 
 Basics:
  - start the server: `yarn serve`
- - run phantomjs: `yarn phantomjs -- --webdriver=4444`
- - run gemini: `yarn gemini -- test`
+ - run phantomjs: `yarn phantomjs --webdriver=4444`
+ - run gemini: `yarn gemini test`
 
 ## Things for me to do in the future, maybe
 

@@ -1,6 +1,1 @@
-.banner {
-  background: #111;
-  color: var(--light);
-  padding: 3rem var(--base-padding); }
-
-/*# sourceMappingURL=../dist/components/banner.style.css.map */
+.banner{background:#111;color:var(--light);padding:3rem var(--base-padding)}

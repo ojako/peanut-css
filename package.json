@@ -34,7 +34,10 @@
   },
   "dependencies": {
     "@types/node": "^10.5.7",
+    "autoprefixer": "^9.1.1",
+    "cssnano": "^4.0.5",
     "gemini": "^5.8.0",
+    "gulp-postcss": "^8.0.0",
     "gulp-sass-lint": "^1.4.0",
     "gulp-version-number": "^0.1.7",
     "highlightjs": "^9.10.0",
