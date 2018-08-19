@@ -23,7 +23,12 @@ If you make changes you can run `gulp` from within the project to regenerate all
 
 CSS Regression testing is performed by gemini
 See the quickstart guide here: https://github.com/gemini-testing/gemini
-Gemini scripts are located under the `gemini` folder
+Gemini scripts and screens are located under the `gemini` folder
+
+Basics:
+ - start the server: `yarn serve`
+ - run phantomjs: `yarn phantomjs -- --webdriver=4444`
+ - run gemini: `yarn gemini -- test`
 
 ## Things for me to do in the future, maybe
 

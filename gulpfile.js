@@ -84,7 +84,7 @@ gulp.task('sass-lint', () =>
     .src(paths.styles.glob)
     .pipe(sassLint())
     .pipe(sassLint.format())
-    .pipe(sassLint.failOnError())
+    // .pipe(sassLint.failOnError())
 );
 
 // Compile pug
@@ -154,7 +154,7 @@ gulp.task('dev',
     .series(
       'views',
       'sass',
-      'sass-lint',
+      // 'sass-lint',
       'minify',
     )
 );

@@ -1,38 +1,39 @@
-section.cnt
-  h2#forms Forms
-  hr
-  form
-    label
-      | Reason for contacting
-      select
-        option(value='Option 1') Questions
-        option(value='Option 2') Admiration
-        option(value='Option 3') Can I get your number?
-    label
-      | Message
-      textarea(placeholder='Example placeholder text')
-    fieldset
-      legend Checkboxes
+section(data-test="formsCnt")
+  .cnt
+    h2#forms Forms
+    hr
+    form
       label
-        input(type='checkbox')
-        |  This is the input
+        | Reason for contacting
+        select
+          option(value='Option 1') Questions
+          option(value='Option 2') Admiration
+          option(value='Option 3') Can I get your number?
       label
-        input(type='checkbox')
-        |  This is the input
-      label
-        input(type='checkbox')
-        |  This is the input
-    fieldset
-      legend Radios
-      label
-        input(type='radio', name='demoRadio1')
-        |  This is the input
-      label
-        input(type='radio', name='demoRadio1')
-        |  This is the input
-      label
-        input(type='radio', name='demoRadio1')
-        |  This is the input
-      label
-        input(type='radio', name='demoRadio1')
-        |  This is the input
+        | Message
+        textarea(placeholder='Example placeholder text')
+      fieldset
+        legend Checkboxes
+        label
+          input(type='checkbox')
+          |  This is the input
+        label
+          input(type='checkbox')
+          |  This is the input
+        label
+          input(type='checkbox')
+          |  This is the input
+      fieldset
+        legend Radios
+        label
+          input(type='radio', name='demoRadio1')
+          |  This is the input
+        label
+          input(type='radio', name='demoRadio1')
+          |  This is the input
+        label
+          input(type='radio', name='demoRadio1')
+          |  This is the input
+        label
+          input(type='radio', name='demoRadio1')
+          |  This is the input
