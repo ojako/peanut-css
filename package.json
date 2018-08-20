@@ -41,6 +41,7 @@
     "gulp-sass-lint": "^1.4.0",
     "gulp-version-number": "^0.1.7",
     "highlightjs": "^9.10.0",
-    "phantomjs": "^2.1.7"
+    "phantomjs": "^2.1.7",
+    "postcss-cssnext": "^3.1.0"
   }
 }

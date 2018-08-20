@@ -6,8 +6,8 @@ const gulp = require('gulp');
 const watch = require('gulp-watch');
 const cleanCSS = require('gulp-clean-css');
 const postCSS = require('gulp-postcss');
+const cssNext = require('postcss-cssnext');
 const cssNano = require('cssnano');
-const autoprefixer = require('autoprefixer');
 const sourcemaps = require('gulp-sourcemaps');
 const sass = require('gulp-sass');
 const pug = require('gulp-pug');
@@ -33,7 +33,7 @@ const paths = {
   },
   styles: {
     glob: 'src/**/*.scss',
-    src: 'src',
+    src: 'src/peanut.scss',
     dest: 'dist',
   },
   templates: {
@@ -73,14 +73,15 @@ gulp.task('minify', () =>
 
 gulp.task('postcss', () => {
   const processors = [
-    autoprefixer,
+    cssNext,
     cssNano,
   ]
 
   return gulp
-    .src(paths.styles.glob)
+    .src(paths.styles.src)
     .pipe(sass())
     .pipe(postCSS(processors))
+    .pipe(rename('peanut.min.css'))
     .pipe(gulp.dest(paths.styles.dest))
   }
 );
@@ -170,9 +171,8 @@ gulp.task('dev',
   gulp
     .series(
       'views',
-      'sass',
       // 'sass-lint',
-      'minify',
+      'postcss',
     )
 );
 
