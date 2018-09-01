@@ -5,6 +5,9 @@
 const gulp = require('gulp');
 const watch = require('gulp-watch');
 const cleanCSS = require('gulp-clean-css');
+const postCSS = require('gulp-postcss');
+const cssNext = require('postcss-cssnext');
+const cssNano = require('cssnano');
 const sourcemaps = require('gulp-sourcemaps');
 const sass = require('gulp-sass');
 const pug = require('gulp-pug');
@@ -13,6 +16,8 @@ const del = require('del');
 const zip = require('gulp-zip');
 const newer = require('gulp-newer');
 const browserSync = require('browser-sync').create();
+const sassLint = require('gulp-sass-lint');
+const version = require('gulp-version-number');
 
 // Files to be processed
 const paths = {
@@ -28,7 +33,7 @@ const paths = {
   },
   styles: {
     glob: 'src/**/*.scss',
-    src: 'src',
+    src: 'src/peanut.scss',
     dest: 'dist',
   },
   templates: {
@@ -66,14 +71,38 @@ gulp.task('minify', () =>
     .pipe(gulp.dest(paths.styles.dest), ['default'])
 );
 
+gulp.task('postcss', () => {
+  const processors = [
+    cssNext,
+    cssNano,
+  ]
+
+  return gulp
+    .src(paths.styles.src)
+    .pipe(sass())
+    .pipe(postCSS(processors))
+    .pipe(rename('peanut.min.css'))
+    .pipe(gulp.dest(paths.styles.dest))
+  }
+);
+
 // Compile SCSS
 gulp.task('sass', () =>
   gulp
     .src(paths.styles.glob)
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
-    .pipe(sourcemaps.write())
+    .pipe(sourcemaps.write(paths.styles.dest))
     .pipe(gulp.dest(paths.styles.dest))
+);
+
+// Lint SCSS
+gulp.task('sass-lint', () =>
+  gulp
+    .src(paths.styles.glob)
+    .pipe(sassLint())
+    .pipe(sassLint.format())
+    // .pipe(sassLint.failOnError())
 );
 
 // Compile pug
@@ -97,7 +126,12 @@ gulp.task('watch', () =>
       ],
       gulp.series('dev')
     )
-);
+  );
+
+// gulp.task('version', () => {
+//   gulp
+//     .pipe(gulp.dest('build'))
+//   });
 
 // Browser sync
 gulp.task('sync', () => {
@@ -117,15 +151,28 @@ gulp.task('sync', () => {
   gulp
     .watch(paths.generatedFiles.glob)
     .on('change', browserSync.reload);
-})
+  })
+
+// gulp.task('version',
+//   gulp
+//     .series(
+//       'default',
+//       'createImage',
+//       'vTest',
+//       'fTest'
+//     )
+// );
+
+
+// gulp.task('createImage',)
 
 // Quick build for dev
 gulp.task('dev',
   gulp
     .series(
       'views',
-      'sass',
-      'minify',
+      // 'sass-lint',
+      'postcss',
     )
 );
 
@@ -136,6 +183,7 @@ gulp.task('default',
       'clean',
       'views',
       'sass',
+      'sass-lint',
       'minify',
     )
 );

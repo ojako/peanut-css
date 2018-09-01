@@ -4,9 +4,19 @@
   "version": "0.0.5",
   "description": "Micro CSS framework",
   "license": "BSD-3-Clause",
-  "keywords": "css",
+  "keywords": [
+    "css",
+    "scss"
+  ],
   "homepage": "https://ojako.github.io/peanut-css/",
   "repository": "https://github.com/ojako/peanut-css.git",
+  "scripts": {
+    "start": "gulp",
+    "setup": "npm install",
+    "serve": "gulp sync",
+    "phantomjs": "node_modules/phantomjs/bin/phantomjs",
+    "gemini": "node_modules/gemini/bin/gemini"
+  },
   "devDependencies": {
     "browser-sync": "^2.24.4",
     "del": "^3.0.0",
@@ -21,5 +31,17 @@
     "gulp-zip": "^4.1.0",
     "normalize.css": "^8.0.0",
     "sass-lint": "^1.12.1"
+  },
+  "dependencies": {
+    "@types/node": "^10.5.7",
+    "autoprefixer": "^9.1.1",
+    "cssnano": "^4.0.5",
+    "gemini": "^5.8.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass-lint": "^1.4.0",
+    "gulp-version-number": "^0.1.7",
+    "highlightjs": "^9.10.0",
+    "phantomjs": "^2.1.7",
+    "postcss-cssnext": "^3.1.0"
   }
 }

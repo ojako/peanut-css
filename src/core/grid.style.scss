@@ -20,7 +20,7 @@
 
 .cols {
   display: flex;
-  padding: var(--base-h-padding);
+  padding: var(--base-padding-h);
 }
 
 .col {
@@ -45,15 +45,15 @@
   float: right;
 }
 
-@media screen and (max-width: var(--screen-lg-max)) {
+@media screen and (max-width: var(--screen-lg)) {
   max-width: 1024px;
 }
-@media screen and (max-width: var(--screen-md-max)) {
+@media screen and (max-width: var(--screen-md)) {
   max-width: 900px;
 }
-@media screen and (max-width: var(--screen-sm-max)) {
+@media screen and (max-width: var(--screen-sm)) {
   /* max-width: */
 }
-@media screen and (max-width: var(--screen-xs-max)) {
+@media screen and (max-width: var(--screen-xs)) {
 
 }

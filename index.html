@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Peanut CSS</title>
-    <link rel="stylesheet" href="dist/peanut.css">
+    <!-- Core dist-->
+    <link rel="stylesheet" href="dist/peanut.min.css">
+    <!-- HighlightJS CSS-->
+    <link rel="stylesheet" href="node_modules/highlightjs/styles/atelier-lakeside.dark.css">
   </head>
   <body>
     <!-- Header-->
@@ -18,266 +21,296 @@
         </header>
       </div>
     </div>
-    <main>
-      <h2>Hey</h2>
+    <main class="page">
       <!-- Type-->
-      <section class="cnt">
-        <h2 id="type">Type</h2>
-        <hr>
-        <div class="font-uc">
-          <h1>Header 1</h1>
-          <h2>Header 2</h2>
-          <h3>Header 3</h3>
-          <h4>Header 4</h4>
-          <h5>Header 5</h5>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla deleniti sit sint dicta quos. Deserunt, consequatur at qui ipsa vero dolore. Illo asperiores similique quos! Pariatur eos voluptates quidem incidunt. sit sint dicta quos. Deserunt, consequatur at qui ipsa vero dolore. Illo asperiores similique quos!</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla deleniti sit sint dicta quos. Deserunt, consequatur at qui ipsa vero dolore. Illo asperiores similique quos! Pariatur eos voluptates quidem incidunt.</p>
+      <section data-test="typeCnt">
+        <div class="cnt">
+          <h2 id="type">Type</h2>
+          <hr>
+          <div class="font-uc">
+            <h1>Header 1</h1>
+            <h2>Header 2</h2>
+            <h3>Header 3</h3>
+            <h4>Header 4</h4>
+            <h5>Header 5</h5>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla deleniti sit sint dicta quos. Deserunt, consequatur at qui ipsa vero dolore. Illo asperiores similique quos! Pariatur eos voluptates quidem incidunt. sit sint dicta quos. Deserunt, consequatur at qui ipsa vero dolore. Illo asperiores similique quos!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla deleniti sit sint dicta quos. Deserunt, consequatur at qui ipsa vero dolore. Illo asperiores similique quos! Pariatur eos voluptates quidem incidunt.</p>
+          </div>
         </div>
       </section>
       <!-- Buttons-->
-      <div class="cnt">
-        <h2 id="buttons">Buttons</h2>
-        <hr>
-        <h3>Basic Set</h3><a href="">Plain Anchor</a>
-        <button class="btn btn-link">Button Link</button>
-        <button class="btn">Simple buttons</button>
-        <button class="btn btn-primary">Primary Button</button>
-        <button class="btn btn-success">Success Button</button>
-        <button class="btn btn-warning">Warning Button</button>
-        <button class="btn btn-danger">Danger Button</button>
-        <button class="btn btn-info">Info Button</button>
-      </div>
-      <div class="cnt">
-        <h3>Button Sizes</h3>
-        <button class="btn btn-xs">Button Extra Small</button>
-        <button class="btn btn-sm">Button Small</button>
-        <button class="btn btn-md">Button Medium</button>
-        <button class="btn btn-lg btn-primary">Button Large</button>
-        <h3>Button Emphasis</h3>
-        <button class="btn btn-lg btn-primary emphasis">Button Emphasis</button>
-        <h3>Horizontal Button Group</h3>
-        <div class="btn-group">
-          <button class="btn">Simple Button</button>
-          <button class="btn">Simple Button</button>
-          <button class="btn">Simple Button</button>
-          <button class="btn">Simple Button</button>
+      <section data-test="buttonsCnt">
+        <div class="cnt">
+          <h2 id="buttons">Buttons</h2>
+          <hr>
+          <h3>Basic Set</h3><a href="">Plain Anchor</a>
+          <button class="btn btn-link">Button Link</button>
+          <button class="btn">Simple buttons</button>
+          <button class="btn btn-primary">Primary Button</button>
+          <button class="btn btn-success">Success Button</button>
+          <button class="btn btn-warning">Warning Button</button>
+          <button class="btn btn-danger">Danger Button</button>
+          <button class="btn btn-info">Info Button</button>
         </div>
-        <h3>Vertical Button Group</h3>
-        <div class="btn-group-v">
-          <button class="btn">Simple Button</button>
-          <button class="btn">Simple Button</button>
-          <button class="btn">Simple Button</button>
-          <button class="btn">Simple Button</button>
+        <div class="cnt">
+          <h3>Button Sizes</h3>
+          <button class="btn btn-xs">Button Extra Small</button>
+          <button class="btn btn-sm">Button Small</button>
+          <button class="btn btn-md">Button Medium</button>
+          <button class="btn btn-lg">Button Large</button>
+          <h3>Button Emphasis</h3>
+          <button class="btn btn-lg btn-primary emphasis">Button Emphasis</button>
+          <h3>Horizontal Button Group</h3>
+          <div class="btn-group">
+            <button class="btn">Simple Button</button>
+            <button class="btn">Simple Button</button>
+            <button class="btn">Simple Button</button>
+            <button class="btn">Simple Button</button>
+          </div>
+          <h3>Vertical Button Group</h3>
+          <div class="btn-group-v">
+            <button class="btn">Simple Button</button>
+            <button class="btn">Simple Button</button>
+            <button class="btn">Simple Button</button>
+            <button class="btn">Simple Button</button>
+          </div>
         </div>
-      </div>
+      </section>
       <!-- Dropdowns-->
-      <section class="cnt">
-        <h3>Dropdown Menus
-          <div class="btn-dropdown">
-            <button class="btn" onclick="dropdownToggle(this)">Dropdown Menu<span class="caret"></span></button>
-            <ul class="dropdown-menu">
-              <li><a href="">Longer titles should wrap</a></li>
-              <li>
-                <hr>
-              </li>
-              <li><a href="">Link</a></li>
-              <li><a href="">Link</a></li>
-              <li>
-                <button class="btn btn-success">Use buttons instead of anchors</button>
-              </li>
-            </ul>
-          </div>
-          <div class="btn-dropdown">
-            <button class="btn" onclick="dropdownToggle(this)"><span class="caret"></span> Dropdown Menu Aligned Left</button>
-            <ul class="dropdown-menu dropdown-left">
-              <li><a href="">Link</a></li>
-              <li><a href="">Link</a></li>
-              <li><a href="">Link</a></li>
-            </ul>
-          </div>
-          <div class="btn-dropdown">
-            <button class="btn" onclick="dropdownToggle(this)">Dropdown Menu Aligned Right<span class="caret"></span></button>
-            <ul class="dropdown-menu dropdown-right">
-              <li><a href="">Link</a></li>
-              <li><a href="">Link</a></li>
-              <li><a href="">Link</a></li>
-            </ul>
-          </div>
-          <div class="btn-dropdown">
-            <button class="btn" onclick="dropdownToggle(this)">Dropdown Menu Aligned Centre<span class="caret"></span></button>
-            <ul class="dropdown-menu dropdown-centre">
-              <li><a href="">Link</a></li>
-              <li><a href="">Link</a></li>
-              <li><a href="">Link</a></li>
-            </ul>
-          </div>
-        </h3>
+      <section data-test="dropdownsCnt">
+        <div class="cnt">
+          <h3>Dropdown Menus
+            <div class="btn-dropdown">
+              <button class="btn" onclick="dropdownToggle(this)">Dropdown Menu<span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                <li><a href="">Longer titles should wrap</a></li>
+                <li>
+                  <hr>
+                </li>
+                <li><a href="">Link</a></li>
+                <li><a href="">Link</a></li>
+                <li>
+                  <button class="btn btn-success">Use buttons instead of anchors</button>
+                </li>
+              </ul>
+            </div>
+            <div class="btn-dropdown">
+              <button class="btn" onclick="dropdownToggle(this)"><span class="caret"></span> Dropdown Menu Aligned Left</button>
+              <ul class="dropdown-menu dropdown-left">
+                <li><a href="">Link</a></li>
+                <li><a href="">Link</a></li>
+                <li><a href="">Link</a></li>
+              </ul>
+            </div>
+            <div class="btn-dropdown">
+              <button class="btn" onclick="dropdownToggle(this)">Dropdown Menu Aligned Right<span class="caret"></span></button>
+              <ul class="dropdown-menu dropdown-right">
+                <li><a href="">Link</a></li>
+                <li><a href="">Link</a></li>
+                <li><a href="">Link</a></li>
+              </ul>
+            </div>
+            <div class="btn-dropdown">
+              <button class="btn" onclick="dropdownToggle(this)">Dropdown Menu Aligned Centre<span class="caret"></span></button>
+              <ul class="dropdown-menu dropdown-centre">
+                <li><a href="">Link</a></li>
+                <li><a href="">Link</a></li>
+                <li><a href="">Link</a></li>
+              </ul>
+            </div>
+          </h3>
+        </div>
       </section>
       <!-- Forms-->
-      <section class="cnt">
-        <h2 id="forms">Forms</h2>
-        <hr>
-        <form>
-          <label>Reason for contacting
-            <select>
-              <option value="Option 1">Questions</option>
-              <option value="Option 2">Admiration</option>
-              <option value="Option 3">Can I get your number?</option>
-            </select>
-          </label>
-          <label>Message
-            <textarea placeholder="Example placeholder text"></textarea>
-          </label>
-          <fieldset>
-            <legend>Checkboxes</legend>
-            <label>
-              <input type="checkbox"> This is the input
+      <section data-test="formsCnt">
+        <div class="cnt">
+          <h2 id="forms">Forms</h2>
+          <hr>
+          <form>
+            <label>Reason for contacting
+              <select>
+                <option value="Option 1">Questions</option>
+                <option value="Option 2">Admiration</option>
+                <option value="Option 3">Can I get your number?</option>
+              </select>
             </label>
-            <label>
-              <input type="checkbox"> This is the input
+            <label>Message
+              <textarea placeholder="Example placeholder text"></textarea>
             </label>
-            <label>
-              <input type="checkbox"> This is the input
-            </label>
-          </fieldset>
-          <fieldset>
-            <legend>Radios</legend>
-            <label>
-              <input type="radio" name="demoRadio1"> This is the input
-            </label>
-            <label>
-              <input type="radio" name="demoRadio1"> This is the input
-            </label>
-            <label>
-              <input type="radio" name="demoRadio1"> This is the input
-            </label>
-            <label>
-              <input type="radio" name="demoRadio1"> This is the input
-            </label>
-          </fieldset>
-        </form>
+            <fieldset>
+              <legend>Checkboxes</legend>
+              <label>
+                <input type="checkbox"> This is the input
+              </label>
+              <label>
+                <input type="checkbox"> This is the input
+              </label>
+              <label>
+                <input type="checkbox"> This is the input
+              </label>
+            </fieldset>
+            <fieldset>
+              <legend>Radios</legend>
+              <label>
+                <input type="radio" name="demoRadio1"> This is the input
+              </label>
+              <label>
+                <input type="radio" name="demoRadio1"> This is the input
+              </label>
+              <label>
+                <input type="radio" name="demoRadio1"> This is the input
+              </label>
+              <label>
+                <input type="radio" name="demoRadio1"> This is the input
+              </label>
+            </fieldset>
+          </form>
+        </div>
       </section>
       <!-- Tables-->
-      <section class="cnt">
-        <h2 id="tables">Tables</h2>
-        <h3>Regular Table</h3>
-        <div class="group">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>Company</th>
-                <th>Contact</th>
-                <th>Country</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Alfreds Futterkiste</td>
-                <td>Maria Anders</td>
-                <td>Germany</td>
-              </tr>
-              <tr>
-                <td>Centro comercial Moctezuma</td>
-                <td>Francisco Chang</td>
-                <td>Mexico</td>
-              </tr>
-              <tr>
-                <td>Ernst Handel</td>
-                <td>Roland Mendel</td>
-                <td>Austria</td>
-              </tr>
-              <tr>
-                <td>Island Trading</td>
-                <td>Helen Bennett</td>
-                <td>UK</td>
-              </tr>
-              <tr>
-                <td>Laughing Bacchus Winecellars</td>
-                <td>Yoshi Tannamuri</td>
-                <td>Canada</td>
-              </tr>
-              <tr>
-                <td>Magazzini Alimentari Riuniti</td>
-                <td>Giovanni Rovelli</td>
-                <td>Italy</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <h3>Striped Table</h3>
-        <div class="group">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>Company</th>
-                <th>Contact</th>
-                <th>Country</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Alfreds Futterkiste</td>
-                <td>Maria Anders</td>
-                <td>Germany</td>
-              </tr>
-              <tr>
-                <td>Centro comercial Moctezuma</td>
-                <td>Francisco Chang</td>
-                <td>Mexico</td>
-              </tr>
-              <tr>
-                <td>Ernst Handel</td>
-                <td>Roland Mendel</td>
-                <td>Austria</td>
-              </tr>
-              <tr>
-                <td>Island Trading</td>
-                <td>Helen Bennett</td>
-                <td>UK</td>
-              </tr>
-              <tr>
-                <td>Laughing Bacchus Winecellars</td>
-                <td>Yoshi Tannamuri</td>
-                <td>Canada</td>
-              </tr>
-              <tr>
-                <td>Magazzini Alimentari Riuniti</td>
-                <td>Giovanni Rovelli</td>
-                <td>Italy</td>
-              </tr>
-            </tbody>
-          </table>
+      <section data-test="tablesCnt">
+        <div class="cnt">
+          <h2 id="tables">Tables</h2>
+          <h3>Regular Table</h3>
+          <div class="group">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Company</th>
+                  <th>Contact</th>
+                  <th>Country</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Alfreds Futterkiste</td>
+                  <td>Maria Anders</td>
+                  <td>Germany</td>
+                </tr>
+                <tr>
+                  <td>Centro comercial Moctezuma</td>
+                  <td>Francisco Chang</td>
+                  <td>Mexico</td>
+                </tr>
+                <tr>
+                  <td>Ernst Handel</td>
+                  <td>Roland Mendel</td>
+                  <td>Austria</td>
+                </tr>
+                <tr>
+                  <td>Island Trading</td>
+                  <td>Helen Bennett</td>
+                  <td>UK</td>
+                </tr>
+                <tr>
+                  <td>Laughing Bacchus Winecellars</td>
+                  <td>Yoshi Tannamuri</td>
+                  <td>Canada</td>
+                </tr>
+                <tr>
+                  <td>Magazzini Alimentari Riuniti</td>
+                  <td>Giovanni Rovelli</td>
+                  <td>Italy</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h3>Striped Table</h3>
+          <div class="group">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Company</th>
+                  <th>Contact</th>
+                  <th>Country</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Alfreds Futterkiste</td>
+                  <td>Maria Anders</td>
+                  <td>Germany</td>
+                </tr>
+                <tr>
+                  <td>Centro comercial Moctezuma</td>
+                  <td>Francisco Chang</td>
+                  <td>Mexico</td>
+                </tr>
+                <tr>
+                  <td>Ernst Handel</td>
+                  <td>Roland Mendel</td>
+                  <td>Austria</td>
+                </tr>
+                <tr>
+                  <td>Island Trading</td>
+                  <td>Helen Bennett</td>
+                  <td>UK</td>
+                </tr>
+                <tr>
+                  <td>Laughing Bacchus Winecellars</td>
+                  <td>Yoshi Tannamuri</td>
+                  <td>Canada</td>
+                </tr>
+                <tr>
+                  <td>Magazzini Alimentari Riuniti</td>
+                  <td>Giovanni Rovelli</td>
+                  <td>Italy</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
-      <!-- Columns-->
-      <section class="cnt">
-        <h2>Grid</h2>
-        <div class="cols">
-          <div class="col">
-            <h3>Column</h3>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi architecto suscipit quia facilis explicabo soluta minima corrupti possimus itaque maxime veniam in ut accusantium voluptates laudantium, aperiam doloremque reprehenderit voluptatibus.</p>
+      <!-- Grid-->
+      <section data-test="gridCnt">
+        <div class="cnt">
+          <h2>Grid</h2>
+          <div class="cols">
+            <div class="col">
+              <h3>Column</h3>
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi architecto suscipit quia facilis explicabo soluta minima corrupti possimus itaque maxime veniam in ut accusantium voluptates laudantium, aperiam doloremque reprehenderit voluptatibus.</p>
+            </div>
+            <div class="col">
+              <h3>Column</h3>
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi architecto suscipit quia facilis explicabo soluta minima corrupti possimus itaque maxime veniam in ut accusantium voluptates laudantium, aperiam doloremque reprehenderit voluptatibus.</p>
+            </div>
+            <div class="col">
+              <h3>Column</h3>
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi architecto suscipit quia facilis explicabo soluta minima corrupti possimus itaque maxime veniam in ut accusantium voluptates laudantium, aperiam doloremque reprehenderit voluptatibus.</p>
+            </div>
+            <div class="col">
+              <h3>Column</h3>
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi architecto suscipit quia facilis explicabo soluta minima corrupti possimus itaque maxime veniam in ut accusantium voluptates laudantium, aperiam doloremque reprehenderit voluptatibus.</p>
+            </div>
           </div>
-          <div class="col">
-            <h3>Column</h3>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi architecto suscipit quia facilis explicabo soluta minima corrupti possimus itaque maxime veniam in ut accusantium voluptates laudantium, aperiam doloremque reprehenderit voluptatibus.</p>
-          </div>
-          <div class="col">
-            <h3>Column</h3>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi architecto suscipit quia facilis explicabo soluta minima corrupti possimus itaque maxime veniam in ut accusantium voluptates laudantium, aperiam doloremque reprehenderit voluptatibus.</p>
-          </div>
-          <div class="col">
-            <h3>Column</h3>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi architecto suscipit quia facilis explicabo soluta minima corrupti possimus itaque maxime veniam in ut accusantium voluptates laudantium, aperiam doloremque reprehenderit voluptatibus.</p>
+        </div>
+      </section>
+      <!-- Cards-->
+      <section data-test="cardsCnt">
+        <div class="cnt">
+          <div class="card">
+            <h5>Card Title</h5>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis rem modi ratione tenetur consequatur sapiente obcaecati asperiores, odio amet quam aperiam dignissimos numquam provident quos eligendi doloremque porro tempora consequuntur?</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga repellendus non eius quasi eveniet vero obcaecati, earum necessitatibus veniam explicabo voluptatem est facere iste suscipit excepturi cum vitae, perferendis quas?</p>
           </div>
         </div>
       </section>
       <!-- Miscs-->
-      <section class="cnt">
-        <h2 id="misc">Misc</h2>
-        <pre>| Pre block something</pre>
+      <section data-test="miscCnt">
+        <div class="cnt">
+          <h2 id="misc">Misc</h2>
+          <pre><code class="pug">pre
+  code
+    // Something</code></pre>
+        </div>
       </section>
     </main>
   </body>
   <!-- Component scripts-->
   <script src="components.js"></script>
+  <script src="node_modules/highlightjs/highlight.pack.min.js"></script>
+  <script>
+    // Highlight code blocks
+    hljs.initHighlightingOnLoad();
+  </script>
 </html>
