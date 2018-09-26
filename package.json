@@ -12,6 +12,7 @@
   "repository": "https://github.com/ojako/peanut-css.git",
   "scripts": {
     "start": "gulp",
+    "clean": "gulp clean",
     "setup": "npm install",
     "serve": "gulp sync",
     "phantomjs": "node_modules/phantomjs/bin/phantomjs",
