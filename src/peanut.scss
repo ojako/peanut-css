@@ -1,6 +1,5 @@
 /* Main CSS file to contain imports */
 /* Third party imports */
-
 @import url('../node_modules/normalize.css/normalize.css');
 
 /* Reset */
@@ -40,8 +39,10 @@
 @import 'core/tables.style';
 
 /* Clearfix */
-.clearfix:after {content:" ";display:block;clear:both;}
-
-body {
-  /* background: var(--brand-primary); */
+.clearfix {
+  &::after {
+    clear: both;
+    content: ' ';
+    display: block;
+  }
 }

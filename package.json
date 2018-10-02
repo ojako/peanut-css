@@ -16,7 +16,8 @@
     "setup": "npm install",
     "serve": "gulp sync",
     "phantomjs": "node_modules/phantomjs/bin/phantomjs",
-    "gemini": "node_modules/gemini/bin/gemini"
+    "gemini": "node_modules/gemini/bin/gemini",
+    "lint-fix": "sass-lint-auto-fix"
   },
   "devDependencies": {
     "browser-sync": "^2.24.4",
@@ -31,7 +32,8 @@
     "gulp-watch": "^5.0.0",
     "gulp-zip": "^4.1.0",
     "normalize.css": "^8.0.0",
-    "sass-lint": "^1.12.1"
+    "sass-lint": "^1.12.1",
+    "sass-lint-auto-fix": "^0.14.2"
   },
   "dependencies": {
     "@types/node": "^10.5.7",
