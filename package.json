@@ -20,7 +20,7 @@
     "lint-fix": "sass-lint-auto-fix"
   },
   "devDependencies": {
-    "browser-sync": "^2.24.4",
+    "browser-sync": "^2.26.0",
     "del": "^3.0.0",
     "gulp": "^4.0.0",
     "gulp-clean-css": "^3.9.4",
@@ -39,7 +39,7 @@
     "@types/node": "^10.5.7",
     "autoprefixer": "^9.1.1",
     "cssnano": "^4.0.5",
-    "gemini": "^5.9.0",
+    "gemini": "^5.9.1",
     "gulp-postcss": "^8.0.0",
     "gulp-sass-lint": "^1.4.0",
     "gulp-version-number": "^0.1.7",
