@@ -1,15 +1,10 @@
 .alert {
   background: var(--grey-lighter);
-  border: 5px solid rgba(255, 255, 255, 0.5)
-  ;
-  box-shadow:
-    inset 2rem -2rem 15rem 0 rgba(255, 255, 255, 0.2)
-    ,inset -2rem 2rem 15rem 0 rgba(255, 255, 255, 0.1);
+  border: 5px solid rgba(255, 255, 255, .5);
+  box-shadow: inset 2rem -2rem 15rem 0 rgba(255, 255, 255, .2), inset -2rem 2rem 15rem 0 rgba(255, 255, 255, .1);
   margin-bottom: var(--base-margin-d);
-  padding:
-    var(--base-padding-v)
-    var(--base-padding-h)
-  ;
+  padding: var(--base-padding);
+
   &.alert-success {
     background: var(--brand-success);
   }

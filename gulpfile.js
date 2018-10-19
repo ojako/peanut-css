@@ -171,8 +171,9 @@ gulp.task('dev',
   gulp
     .series(
       'views',
-      // 'sass-lint',
+      'sass-lint',
       'postcss',
+      'minify',
     )
 );
 

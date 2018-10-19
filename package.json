@@ -13,13 +13,15 @@
   "scripts": {
     "start": "gulp",
     "clean": "gulp clean",
-    "setup": "npm install",
     "serve": "gulp sync",
+    "build": "gulp dev",
+    "setup": "npm install",
     "phantomjs": "node_modules/phantomjs/bin/phantomjs",
     "gemini": "node_modules/gemini/bin/gemini",
     "lint-fix": "sass-lint-auto-fix"
   },
   "devDependencies": {
+    "angular": "^1.7.5",
     "browser-sync": "^2.26.0",
     "del": "^3.0.0",
     "gulp": "^4.0.0",
