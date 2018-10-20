@@ -13,22 +13,30 @@ label {
   }
 }
 
-input[type='email'],
-input[type='number'],
-input[type='search'],
-input[type='text'],
-input[type='tel'],
-input[type='url'],
-input[type='password'],
+input {
+  [type='email'],
+  [type='number'],
+  [type='search'],
+  [type='text'],
+  [type='tel'],
+  [type='url'],
+  [type='password'] {
+    appearance: none;
+    background-color: #fff;
+    border: var(--base-border-width) solid var(--grey-light);
+    border-radius: var(--base-radius);
+    box-shadow: none;
+    box-sizing: border-box;
+    display: block;
+    padding: var(--base-padding);
+  }
+}
+
 textarea,
 select {
   appearance: none;
   background-color: #fff;
-  border:
-    var(--base-border-width)
-    solid
-    var(--grey-light)
-  ;
+  border: var(--base-border-width) solid var(--grey-light);
   border-radius: var(--base-radius);
   box-shadow: none;
   box-sizing: border-box;
