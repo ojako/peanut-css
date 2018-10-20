@@ -40,11 +40,11 @@ const paths = {
   scripts: {
     glob: 'demo/**/*.ts',
     src: 'demo/**/*.ts',
-    dest: 'dist',
+    dest: 'dist/demo',
   },
   templates: {
     glob: 'demo/**/*.pug',
-    src: 'demo/templates/index.pug',
+    src: 'demo/index.pug',
     dest: 'dist/demo',
   },
 }
@@ -179,7 +179,6 @@ gulp.task('sync', () => {
 //     )
 // );
 
-
 // gulp.task('createImage',)
 
 // Quick build for dev
@@ -189,7 +188,7 @@ gulp.task('dev',
       'sass-lint',
       'postcss',
       'views',
-      // 'scripts',
+      'scripts',
       'minify',
     )
 );

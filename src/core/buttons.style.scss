@@ -17,11 +17,11 @@ $brand-colours: 'primary', 'success', 'danger', 'warning', 'info';
   transition: .5s box-shadow, .2s border-color;
 
   &.active {
-    background-image: #{$trans-black-15};
+    // background-image: #{$trans-black-15};
   }
 
   &:hover {
-    background-image: #{$trans-black-5};
+    // background-image: #{$trans-black-5};
     background-repeat: repeat;
     cursor: pointer;
   }
