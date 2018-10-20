@@ -18,17 +18,18 @@ const newer = require('gulp-newer');
 const browserSync = require('browser-sync').create();
 const sassLint = require('gulp-sass-lint');
 const version = require('gulp-version-number');
+const ts = require('gulp-typescript');
 
 // Files to be processed
 const paths = {
   generatedFiles: {
     glob: [
       'dist/**/*',
-      'index.html',
+      // 'index.html',
     ],
     src: [
       'dist',
-      'index.html',
+      // 'index.html',
     ],
   },
   styles: {
@@ -36,10 +37,15 @@ const paths = {
     src: 'src/peanut.scss',
     dest: 'dist',
   },
+  scripts: {
+    glob: 'demo/**/*.ts',
+    src: 'demo/**/*.ts',
+    dest: 'dist',
+  },
   templates: {
-    glob: 'templates/**/*.pug',
-    src: 'templates/index.pug',
-    dest: './',
+    glob: 'demo/**/*.pug',
+    src: 'demo/templates/index.pug',
+    dest: 'dist/demo',
   },
 }
 
@@ -116,6 +122,15 @@ gulp.task('views', () =>
     .pipe(gulp.dest(paths.templates.dest))
 );
 
+// Typescript
+gulp.task('scripts', () =>
+  gulp
+    .src(paths.scripts.src)
+    .pipe(newer(paths.scripts.dest))
+    .pipe(ts())
+    .pipe(gulp.dest(paths.scripts.dest))
+);
+
 // Watch files
 gulp.task('watch', () =>
   gulp
@@ -123,6 +138,7 @@ gulp.task('watch', () =>
       [
         paths.styles.glob,
         paths.templates.glob,
+        paths.scripts.glob,
       ],
       gulp.series('dev')
     )
@@ -170,9 +186,10 @@ gulp.task('sync', () => {
 gulp.task('dev',
   gulp
     .series(
-      'views',
       'sass-lint',
       'postcss',
+      'views',
+      // 'scripts',
       'minify',
     )
 );
@@ -182,9 +199,6 @@ gulp.task('default',
   gulp
     .series(
       'clean',
-      'views',
-      'sass',
-      'sass-lint',
-      'minify',
+      'dev',
     )
 );
