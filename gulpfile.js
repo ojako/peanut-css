@@ -19,6 +19,7 @@ const browserSync = require('browser-sync').create();
 const sassLint = require('gulp-sass-lint');
 const version = require('gulp-version-number');
 const ts = require('gulp-typescript');
+const uglify = require('gulp-uglify');
 
 // Files to be processed
 const paths = {
@@ -49,7 +50,7 @@ const paths = {
   },
 }
 
-// Kill generated files
+// Destroy generated files
 gulp.task('clean', () =>
   del(paths.generatedFiles.src)
 );
@@ -85,7 +86,9 @@ gulp.task('postcss', () => {
 
   return gulp
     .src(paths.styles.src)
-    .pipe(sass())
+    // .pipe(sourcemaps.init())
+    .pipe(sass().on('error', sass.logError))
+    // .pipe(sourcemaps.write(paths.styles.dest))
     .pipe(postCSS(processors))
     .pipe(rename('peanut.min.css'))
     .pipe(gulp.dest(paths.styles.dest))
@@ -93,14 +96,14 @@ gulp.task('postcss', () => {
 );
 
 // Compile SCSS
-gulp.task('sass', () =>
-  gulp
-    .src(paths.styles.glob)
-    .pipe(sourcemaps.init())
-    .pipe(sass().on('error', sass.logError))
-    .pipe(sourcemaps.write(paths.styles.dest))
-    .pipe(gulp.dest(paths.styles.dest))
-);
+// gulp.task('sass', () =>
+//   gulp
+//     .src(paths.styles.glob)
+//     .pipe(sourcemaps.init())
+//     .pipe(sass().on('error', sass.logError))
+//     .pipe(sourcemaps.write(paths.styles.dest))
+//     .pipe(gulp.dest(paths.styles.dest))
+// );
 
 // Lint SCSS
 gulp.task('sass-lint', () =>
@@ -108,7 +111,7 @@ gulp.task('sass-lint', () =>
     .src(paths.styles.glob)
     .pipe(sassLint())
     .pipe(sassLint.format())
-    // .pipe(sassLint.failOnError())
+    .pipe(sassLint.failOnError())
 );
 
 // Compile pug
@@ -128,6 +131,8 @@ gulp.task('scripts', () =>
     .src(paths.scripts.src)
     .pipe(newer(paths.scripts.dest))
     .pipe(ts())
+    .pipe(uglify())
+    .pipe(rename('app.min.js'))
     .pipe(gulp.dest(paths.scripts.dest))
 );
 
@@ -189,7 +194,7 @@ gulp.task('dev',
       'postcss',
       'views',
       'scripts',
-      'minify',
+      // 'minify',
     )
 );
 
