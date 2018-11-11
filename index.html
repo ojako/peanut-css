@@ -7,21 +7,28 @@
     <title>Peanut CSS</title>
     <!-- Core dist-->
     <link rel="stylesheet" href="dist/peanut.min.css">
+    <link rel="stylesheet" href="themes/pn-theme-dark.css">
     <!-- HighlightJS CSS-->
     <link rel="stylesheet" href="node_modules/highlightjs/styles/atelier-lakeside.dark.css">
   </head>
   <body>
     <!-- Header-->
-    <div class="banner banner-default">
-      <div class="cnt group">
-        <header>
-          <h1>Components Pages</h1>
-          <p>A little CSS framework with a few helpful components.</p>
-          <div class="btn-group"><a class="btn" href="#type">Type</a><a class="btn" href="#buttons">Buttons</a><a class="btn" href="#forms">Forms</a><a class="btn" href="#alerts">Alerts</a><a class="btn" href="#tables">Tables</a><a class="btn" href="#misc">Misc</a></div>
-        </header>
-      </div>
+    <div class="banner banner-default pn-theme-site-banner">
+      <header class="cnt cnt-centre text-center pn-theme-site-header">
+        <h1>Peanut CSS</h1>
+        <p>A little CSS framework with a few helpful components.</p>
+        <p>
+          <span span="label label-warning">Experimental</span> <span class="label label-danger">Tests failing</span>
+        </p>
+      </header>
     </div>
-    <main class="page">
+    <main class="cnt cnt-centre landing-page-main">
+      <a type="button" href="https://github.com/ojako/peanut-css" class="btn btn-lg">
+        Github
+      </a>
+      <a href="dist/demo/" type="button" class="btn btn-lg">
+        Demo
+      </a>
       <!-- Type-->
       <section data-test="typeCnt">
         <div class="cnt">
@@ -307,6 +314,7 @@
     </main>
   </body>
   <!-- Component scripts-->
+  <script src="node_modules/angular/angular.min.js"></script>
   <script src="components.js"></script>
   <script src="node_modules/highlightjs/highlight.pack.min.js"></script>
   <script>

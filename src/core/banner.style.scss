@@ -1,12 +1,9 @@
 .banner {
-  padding: var(--base-padding);
-}
+  background-position: center;
+  background-size: cover;
+  padding: v(base-padding);
 
-.banner.banner-dark {
-  background: black;  
-}
-
-* {
-  color: red;
-  background: blue;
+  &.banner-dark {
+    background: v(dark);
+  }
 }

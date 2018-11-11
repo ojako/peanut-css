@@ -1,10 +1,10 @@
 .cnt {
   /*  display: block;*/
-  max-width: var(--screen-max);
-  padding: 0 var(--base-padding);
+  max-width: v(screen-max);
+  padding: 0 v(base-padding);
 
   &.cnt-full {
-    padding: 0 var(--base-padding)
+    padding: 0 v(base-padding);
   }
 
   &.cnt-centre {
@@ -14,46 +14,33 @@
 
   &.cnt-inline {
     display: inline-block;
-    padding: var(--base-padding);
+    padding: v(base-padding);
   }
 }
 
 .cols {
   display: flex;
-  padding: var(--base-padding-h);
+  padding: v(base-padding-h);
 }
 
 .col {
   display: block;
 }
 
-.block {
-  display: block;
-  width: 100%;
-}
-
 /* Give a group a standard layout */
 .group {
-  margin-bottom: var(--base-margin-d);
+  margin-bottom: v(base-margin-d);
 }
 
-/* Pull */
-.pull-left {
-  float: left;
-}
-.pull-right {
-  float: right;
-}
-
-@media screen and (max-width: var(--screen-lg)) {
-  max-width: 1024px;
-}
-@media screen and (max-width: var(--screen-md)) {
-  max-width: 900px;
-}
-@media screen and (max-width: var(--screen-sm)) {
-  /* max-width: */
-}
-@media screen and (max-width: var(--screen-xs)) {
-
-}
+// @media screen and (max-width: v(screen-lg)) {
+//   max-width: 1024px;
+// }
+// @media screen and (max-width: v(screen-md)) {
+//   max-width: 900px;
+// }
+// @media screen and (max-width: v(screen-sm)) {
+//   max-width: 640px;
+// }
+// @media screen and (max-width: v(screen-xs)) {
+//   max-width: 300px;
+// }

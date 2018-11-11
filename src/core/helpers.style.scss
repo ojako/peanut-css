@@ -3,34 +3,42 @@
   top: 1px;
   z-index: 9999;
 }
+
 .block {
   display: block;
 }
+
+.pull-left {float: left}
+
+.pull-right {float: right}
+
 .inline-block {
   display: inline-block;
 }
+
 .inline {
   display: inline;
 }
 
 /* Replace with something else */
 .caret {
-  display: inline-block;
-  width: 0;
-  height: 0;
-  /* margin-left: 2px; */
-  vertical-align: middle;
-  border-top: 4px dashed;
-  border-top: 4px solid\9;
-  border-right: 4px solid transparent;
   border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px dashed;
+  display: inline-block;
+  height: 0;
+  vertical-align: middle;
+  width: 0;
 }
-.btn.active > .caret {
-  transform: rotateX(180deg);
+
+.btn {
+  .active > .caret {
+    transform: rotateX(180deg);
+  }
 }
 
 .emphasis {
-  box-shadow: var(--box-shadow) !important;
+  box-shadow: v(box-shadow);
 }
 
 /* @supports ((position: -webkit-sticky) or (position: sticky)) {

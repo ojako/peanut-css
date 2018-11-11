@@ -18,17 +18,18 @@ const newer = require('gulp-newer');
 const browserSync = require('browser-sync').create();
 const sassLint = require('gulp-sass-lint');
 const version = require('gulp-version-number');
+const ts = require('gulp-typescript');
+const uglify = require('gulp-uglify');
+const autoprefixer = require('autoprefixer');
 
 // Files to be processed
 const paths = {
   generatedFiles: {
     glob: [
       'dist/**/*',
-      'index.html',
     ],
     src: [
       'dist',
-      'index.html',
     ],
   },
   styles: {
@@ -36,14 +37,19 @@ const paths = {
     src: 'src/peanut.scss',
     dest: 'dist',
   },
+  scripts: {
+    glob: 'demo/**/*.ts',
+    src: 'demo/**/*.ts',
+    dest: 'dist/demo',
+  },
   templates: {
-    glob: 'templates/**/*.pug',
-    src: 'templates/index.pug',
-    dest: './',
+    glob: 'demo/**/*.pug',
+    src: 'demo/index.pug',
+    dest: 'dist/demo',
   },
 }
 
-// Kill generated files
+// Destroy generated files
 gulp.task('clean', () =>
   del(paths.generatedFiles.src)
 );
@@ -73,27 +79,20 @@ gulp.task('minify', () =>
 
 gulp.task('postcss', () => {
   const processors = [
-    cssNext,
+    // cssNext,
+    autoprefixer,
     cssNano,
   ]
 
   return gulp
     .src(paths.styles.src)
-    .pipe(sass())
+    // .pipe(sourcemaps.init())
+    .pipe(sass().on('error', sass.logError))
+    // .pipe(sourcemaps.write(paths.styles.dest))
     .pipe(postCSS(processors))
     .pipe(rename('peanut.min.css'))
     .pipe(gulp.dest(paths.styles.dest))
   }
-);
-
-// Compile SCSS
-gulp.task('sass', () =>
-  gulp
-    .src(paths.styles.glob)
-    .pipe(sourcemaps.init())
-    .pipe(sass().on('error', sass.logError))
-    .pipe(sourcemaps.write(paths.styles.dest))
-    .pipe(gulp.dest(paths.styles.dest))
 );
 
 // Lint SCSS
@@ -102,7 +101,7 @@ gulp.task('sass-lint', () =>
     .src(paths.styles.glob)
     .pipe(sassLint())
     .pipe(sassLint.format())
-    // .pipe(sassLint.failOnError())
+    .pipe(sassLint.failOnError())
 );
 
 // Compile pug
@@ -116,6 +115,17 @@ gulp.task('views', () =>
     .pipe(gulp.dest(paths.templates.dest))
 );
 
+// Typescript
+gulp.task('scripts', () =>
+  gulp
+    .src(paths.scripts.src)
+    .pipe(newer(paths.scripts.dest))
+    .pipe(ts())
+    .pipe(uglify())
+    .pipe(rename('app.min.js'))
+    .pipe(gulp.dest(paths.scripts.dest))
+);
+
 // Watch files
 gulp.task('watch', () =>
   gulp
@@ -123,15 +133,11 @@ gulp.task('watch', () =>
       [
         paths.styles.glob,
         paths.templates.glob,
+        paths.scripts.glob,
       ],
       gulp.series('dev')
     )
   );
-
-// gulp.task('version', () => {
-//   gulp
-//     .pipe(gulp.dest('build'))
-//   });
 
 // Browser sync
 gulp.task('sync', () => {
@@ -143,7 +149,11 @@ gulp.task('sync', () => {
 
   gulp
     .watch(
-      [paths.styles.glob, paths.templates.glob],
+      [
+        paths.styles.glob,
+        paths.templates.glob,
+        paths.scripts.glob,
+      ],
       gulp
         .series('dev')
     )
@@ -163,16 +173,14 @@ gulp.task('sync', () => {
 //     )
 // );
 
-
-// gulp.task('createImage',)
-
 // Quick build for dev
 gulp.task('dev',
   gulp
     .series(
-      'views',
-      // 'sass-lint',
+      'sass-lint',
       'postcss',
+      'views',
+      'scripts',
     )
 );
 
@@ -181,9 +189,6 @@ gulp.task('default',
   gulp
     .series(
       'clean',
-      'views',
-      'sass',
-      'sass-lint',
-      'minify',
+      'dev',
     )
 );
