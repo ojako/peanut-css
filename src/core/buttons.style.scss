@@ -22,6 +22,7 @@ $brand-colours: 'primary', 'success', 'danger', 'warning', 'info';
   &:hover {
     // background-image: #{$trans-black-5};
     // background-repeat: repeat;
+    background-image: v(trans-black-5);
     cursor: pointer;
   }
 }
@@ -34,7 +35,7 @@ $brand-colours: 'primary', 'success', 'danger', 'warning', 'info';
     color: #fff;
 
     &:hover {
-      background: v(brand-#{$item});
+      background-color: v(brand-#{$item});
     }
   }
 }
@@ -92,7 +93,6 @@ a,
   margin-bottom: v(base-margin-d); /* Hack to remove whitespace */
 
   .btn {
-    border-color: rgba(0, 0, 0, .05);
     margin-bottom: 0;
     margin-right: calc(#{v(base-border-width)} * -2);
 
