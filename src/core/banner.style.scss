@@ -1,9 +1,9 @@
 .banner {
   background-position: center;
   background-size: cover;
-  padding: var(--base-padding);
+  padding: v(base-padding);
 
   &.banner-dark {
-    background: var(--dark);
+    background: v(dark);
   }
 }

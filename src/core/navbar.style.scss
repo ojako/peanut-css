@@ -1,15 +1,15 @@
 .navbar {
-  /* border: var(--base-border-width) solid var(--grey-light); */
+  /* border: v(base-border-width) solid v(grey-light); */
   background:
     linear-gradient(
       3deg
-      ,var(--grey-darker)
-      ,var(--grey-dark)
+      ,v(grey-darker)
+      ,v(grey-dark)
     )
     ,linear-gradient(
       70deg
-      ,var(--grey-darker)
-      ,var(--grey-dark)
+      ,v(grey-darker)
+      ,v(grey-dark)
     );
   box-sizing: padding-box
   ;

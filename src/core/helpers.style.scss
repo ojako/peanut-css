@@ -26,7 +26,6 @@
   border-right: 4px solid transparent;
   border-top: 4px dashed;
   /* margin-left: 2px; */
-  border-top: 4px solid\9;
   display: inline-block;
   height: 0;
   vertical-align: middle;
@@ -37,7 +36,7 @@
 }
 
 .emphasis {
-  box-shadow: var(--box-shadow) !important;
+  box-shadow: v(box-shadow) !important;
 }
 
 /* @supports ((position: -webkit-sticky) or (position: sticky)) {

@@ -1,9 +1,9 @@
 /* Code
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 code {
-  background: var(--grey-lighter);
-  border: 1px solid var(--grey-light);
-  border-radius: var(--base-radius);
+  background: v(grey-lighter);
+  border: 1px solid v(grey-light);
+  border-radius: v(base-radius);
   font-size: 90%;
   margin: 0 .2rem;
   padding: .2rem .5rem;
@@ -17,8 +17,8 @@ pre > code {
 }
 
 hr {
-  border-top: 1px solid var(--grey-lighter);
+  border-top: 1px solid v(grey-lighter);
   border-width: 0;
-  padding-bottom: var(--base-padding-v);
-  padding-top: var(--base-padding-v);
+  padding-bottom: v(base-padding-v);
+  padding-top: v(base-padding-v);
 }

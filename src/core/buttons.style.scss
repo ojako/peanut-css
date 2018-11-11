@@ -2,17 +2,17 @@ $brand-colours: 'primary', 'success', 'danger', 'warning', 'info';
 
 /* Buttons */
 .btn {
-  background: var(--btn-background);
-  border: var(--base-border-width) solid transparent;
-  border-radius: var(--base-radius);
+  background: v(btn-background);
+  border: v(base-border-width) solid transparent;
+  border-radius: v(base-radius);
   box-shadow: inset 0 0 transparent;
-  color: var(--btn-color);
+  color: v(btn-color);
   display: inline-block;
   font-size: 1rem;
   font-weight: lighter;
-  margin-bottom: var(--base-margin-d);
+  margin-bottom: v(base-margin-d);
   outline: none;
-  padding: var(--btn-padding);
+  padding: v(btn-padding);
   text-align: center; /* Required to counter effects of whitespace hack */
   transition: .5s box-shadow, .2s border-color;
 
@@ -30,7 +30,7 @@ $brand-colours: 'primary', 'success', 'danger', 'warning', 'info';
 // Generate button styles
 @each $item in $brand-colours {
   #{'.btn-' + $item} {
-    background: var(--brand-#{$item});
+    background: v(brand-#{$item});
     color: #fff;
   }
 }
@@ -58,7 +58,7 @@ a,
 .btn-link {
   background: none;
   border: 0;
-  color: var(--link-color);
+  color: v(link-color);
   font-size: 1rem;
   font-weight: bold;
   padding: 0;
@@ -72,7 +72,7 @@ a,
 }
 
 .btn-link {
-  padding: var(--base-padding);
+  padding: v(base-padding);
 }
 
 // Emphasis on a single button
@@ -85,12 +85,12 @@ a,
 .btn-group-v {
   display: inline-block;
   font-size: 0;
-  margin-bottom: var(--base-margin-d); /* Hack to remove whitespace */
+  margin-bottom: v(base-margin-d); /* Hack to remove whitespace */
 
   .btn {
-    border-color: rgba(0,0,0,0.05);
+    border-color: rgba(0, 0, 0, .05);
     margin-bottom: 0;
-    margin-right: calc(var(--base-border-width) * -2);
+    margin-right: calc(#{v(base-border-width)} * -2);
 
     &:not(:first-child):not(:last-child) {
       border-radius: 0;
@@ -141,14 +141,14 @@ a,
 .btn-dropdown > .btn ~ ul {
   background: #fff;
   border: 0;
-  border-radius: var(--base-radius);
+  border-radius: v(base-radius);
   border-style: solid;
-  box-shadow: var(--box-shadow);
+  box-shadow: v(box-shadow);
   display: none;
   list-style-type: none;
   margin: 0;
   min-width: 7rem;
-  padding: var(--base-padding-v) 0;
+  padding: v(base-padding-v) 0;
   position: absolute;
   right: 0;
   text-align: center;
@@ -156,7 +156,7 @@ a,
 }
 .btn-dropdown > .btn.active ~ ul {
   display: inline-block;
-  z-index: var(--zindex-dropdown);
+  z-index: v(zindex-dropdown);
 }
 
 /* Dropdown Position */
@@ -183,7 +183,7 @@ a,
   ;
   display: block;
   margin: 0;
-  padding: var(--btn-dropdown-padding-v --btn-dropdown-padding-h);
+  padding: v(btn-dropdown-padding-v --btn-dropdown-padding-h);
   width: 100%;
 }
 

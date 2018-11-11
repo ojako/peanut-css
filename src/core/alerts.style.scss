@@ -1,23 +1,23 @@
 .alert {
-  background: var(--grey-lighter);
+  background: v(grey-lighter);
   border: 5px solid rgba(255, 255, 255, .5);
   box-shadow: inset 2rem -2rem 15rem 0 rgba(255, 255, 255, .2), inset -2rem 2rem 15rem 0 rgba(255, 255, 255, .1);
-  margin-bottom: var(--base-margin-d);
-  padding: var(--base-padding);
+  margin-bottom: v(base-margin-d);
+  padding: v(base-padding);
 
   &.alert-success {
-    background: var(--brand-success);
+    background: v(brand-success);
   }
 
   &.alert-info {
-    background: var(--brand-info);
+    background: v(brand-info);
   }
 
   &.alert-danger {
-    background: var(--brand-danger);
+    background: v(brand-danger);
   }
 
   &.alert-warning {
-    background: var(--brand-warning);
+    background: v(brand-warning);
   }
 }

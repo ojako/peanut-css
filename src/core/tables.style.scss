@@ -4,16 +4,16 @@
   width: 100%;
 
   thead {
-    background: var(--grey-dark);
-    color: var(--light);
+    background: v(grey-dark);
+    color: v(light);
   }
 
   .td,
   th {
-    padding: var(--base-padding-v --base-padding-h);
+    padding: v(base-padding-v --base-padding-h);
   }
 
   &.table-striped tr:nth-child(even) {
-    background-color: var(--grey-lighter);
+    background-color: v(grey-lighter);
   }
 }

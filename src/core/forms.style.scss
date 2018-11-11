@@ -9,7 +9,7 @@ label {
   > input[type='password'],
   > textarea,
   > select {
-    margin-top: var(--base-margin-d);
+    margin-top: v(base-margin-d);
   }
 }
 
@@ -23,12 +23,12 @@ input {
   [type='password'] {
     appearance: none;
     background-color: #fff;
-    border: var(--base-border-width) solid var(--grey-light);
-    border-radius: var(--base-radius);
+    border: v(base-border-width) solid v(grey-light);
+    border-radius: v(base-radius);
     box-shadow: none;
     box-sizing: border-box;
     display: block;
-    padding: var(--base-padding);
+    padding: v(base-padding);
   }
 }
 
@@ -36,12 +36,12 @@ textarea,
 select {
   appearance: none;
   background-color: #fff;
-  border: var(--base-border-width) solid var(--grey-light);
-  border-radius: var(--base-radius);
+  border: v(base-border-width) solid v(grey-light);
+  border-radius: v(base-radius);
   box-shadow: none;
   box-sizing: border-box;
   display: block;
-  padding: var(--base-padding);
+  padding: v(base-padding);
 }
 
 textarea {
@@ -60,14 +60,14 @@ input[type='url']:focus,
 input[type='password']:focus,
 textarea:focus,
 select:focus {
-  border: var(--base-border-width) solid var(--brand-primary);
+  border: v(base-border-width) solid v(brand-primary);
   outline: 0;
 }
 label,
 legend {
   display: block;
-  font-weight: var(--font-weight-heavy);
-  margin-bottom: var(--base-margin-d);
+  font-weight: v(font-weight-heavy);
+  margin-bottom: v(base-margin-d);
 }
 
 fieldset {
