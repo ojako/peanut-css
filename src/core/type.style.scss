@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Catamaran|Dosis|Lora|Quattrocento+Sans|Libre+Baskerville");
+@import url('https://fonts.googleapis.com/css?family=Catamaran|Dosis|Lora|Quattrocento+Sans|Libre+Baskerville');
 
 /*
   Make clear separation using font face between user
@@ -67,7 +67,7 @@ h5 {
 }
 
 h6 {
-  font-size: 0.875rem;
+  font-size: .875rem;
   padding-top: calc(
     var(--base-margin-d) * 1.1
   );

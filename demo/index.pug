@@ -5,13 +5,18 @@ html(lang='en')
 
   head
     meta(charset='UTF-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    meta(
+      name='viewport'
+      content='width=device-width, initial-scale=1.0'
+    )
+    meta(
+      http-equiv='X-UA-Compatible'
+      content='ie=edge'
+    )
     title Peanut CSS
     // Core dist
-    link(rel='stylesheet', href='dist/peanut.min.css')
-    // HighlightJS CSS
-    link(rel='stylesheet', href='node_modules/highlightjs/styles/atelier-lakeside.dark.css')
+    link(rel='stylesheet' href='../peanut.min.css')
+    link#themeStyle(rel='stylesheet' href="../../themes/pn-theme-dark.css")
 
   body
 
@@ -46,7 +51,6 @@ html(lang='en')
 
   // Component scripts
   script(src='dist/demo/app.min.js')
-  script(src='node_modules/highlightjs/highlight.pack.min.js')
   script.
     // Highlight code blocks
     hljs.initHighlightingOnLoad();

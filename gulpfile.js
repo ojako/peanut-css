@@ -80,7 +80,7 @@ gulp.task('minify', () =>
 
 gulp.task('postcss', () => {
   const processors = [
-    cssNext,
+    // cssNext,
     cssNano,
   ]
 
@@ -156,6 +156,8 @@ gulp.task('watch', () =>
 
 // Browser sync
 gulp.task('sync', () => {
+  // gulp
+  //   .series('dev')
   browserSync.init({
     server: {
       baseDir: './'
@@ -164,7 +166,11 @@ gulp.task('sync', () => {
 
   gulp
     .watch(
-      [paths.styles.glob, paths.templates.glob],
+      [
+        paths.styles.glob,
+        paths.templates.glob,
+        paths.scripts.glob,
+      ],
       gulp
         .series('dev')
     )

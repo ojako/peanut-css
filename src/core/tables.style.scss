@@ -8,9 +8,9 @@
     color: var(--light);
   }
 
-  .td
-  ,th {
-    padding: var(--base-padding-v) var(--base-padding-h);
+  .td,
+  th {
+    padding: var(--base-padding-v --base-padding-h);
   }
 
   &.table-striped tr:nth-child(even) {

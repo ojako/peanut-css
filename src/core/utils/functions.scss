@@ -1,0 +1,20 @@
+// Generate a set of variables
+@mixin define-vars($vars: ()) {
+  $default-prefix: '--';
+
+  @each $name, $value in $vars {
+    #{$default-prefix}#{$pn-prefix}#{$name}: $value;
+  }
+};
+
+// Use library var
+@function v($vars) {
+  @return var(--#{$pn-prefix}#{$vars});
+};
+
+// Construct a new component class
+@mixin class-constructor($name) {
+  .#{$pn-prefix}#{$name} {
+    @content;
+  }
+};
