@@ -11,13 +11,14 @@
       ,v(grey-darker)
       ,v(grey-dark)
     );
-  box-sizing: padding-box
-  ;
+  box-sizing: padding-box;
 }
+
 .navbar > .btn-group {
   margin-bottom: 0;
 }
-.navbar > .btn-group > * {
+
+.navbar > .btn-group > .btn {
   border-bottom: 0;
   border-top: 0;
   margin-bottom: 0;

@@ -48,7 +48,7 @@ rules:
   declarations-before-nesting: 1
   force-attribute-nesting: 1
   force-element-nesting: 1
-  force-pseudo-nesting: 1
+  force-pseudo-nesting: 0
 
   # Name Formats
   class-name-format: 1
@@ -81,7 +81,7 @@ rules:
   zero-unit: 1
 
   # Inner Spacing
-  space-after-comma: 1
+  space-after-comma: 0
   space-before-colon: 1
   space-after-colon: 1
   space-before-brace: 1

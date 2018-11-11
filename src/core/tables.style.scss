@@ -13,7 +13,11 @@
     padding: v(base-padding-v --base-padding-h);
   }
 
-  &.table-striped tr:nth-child(even) {
-    background-color: v(grey-lighter);
+  &.table-striped {
+    tr {
+      &:nth-child(even) {
+        background-color: v(grey-lighter);
+      }
+    }
   }
 }

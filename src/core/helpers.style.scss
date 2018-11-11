@@ -25,18 +25,20 @@
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
   border-top: 4px dashed;
-  /* margin-left: 2px; */
   display: inline-block;
   height: 0;
   vertical-align: middle;
   width: 0;
 }
-.btn.active > .caret {
-  transform: rotateX(180deg);
+
+.btn {
+  .active > .caret {
+    transform: rotateX(180deg);
+  }
 }
 
 .emphasis {
-  box-shadow: v(box-shadow) !important;
+  box-shadow: v(box-shadow);
 }
 
 /* @supports ((position: -webkit-sticky) or (position: sticky)) {

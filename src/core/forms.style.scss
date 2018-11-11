@@ -1,18 +1,4 @@
 /* Applies some margins around a group of objects */
-label {
-  > input[type='email'],
-  > input[type='number'],
-  > input[type='search'],
-  > input[type='text'],
-  > input[type='tel'],
-  > input[type='url'],
-  > input[type='password'],
-  > textarea,
-  > select {
-    margin-top: v(base-margin-d);
-  }
-}
-
 input {
   [type='email'],
   [type='number'],
@@ -29,6 +15,35 @@ input {
     box-sizing: border-box;
     display: block;
     padding: v(base-padding);
+  }
+
+  [type='checkbox'],
+  [type='radio'] {
+    display: inline;
+  }
+}
+
+label {
+  > input {
+    [type='email'],
+    [type='number'],
+    [type='search'],
+    [type='text'],
+    [type='tel'],
+    [type='url'],
+    [type='password'] {
+      margin-top: v(base-margin-d);
+    }
+
+    &:focus {
+      border: v(base-border-width) solid v(brand-primary);
+      outline: 0;
+    }
+  }
+
+  > textarea,
+  > select {
+    margin-top: v(base-margin-d);
   }
 }
 
@@ -51,18 +66,6 @@ textarea {
   min-width: 30em;
 }
 
-input[type='email']:focus,
-input[type='number']:focus,
-input[type='search']:focus,
-input[type='text']:focus,
-input[type='tel']:focus,
-input[type='url']:focus,
-input[type='password']:focus,
-textarea:focus,
-select:focus {
-  border: v(base-border-width) solid v(brand-primary);
-  outline: 0;
-}
 label,
 legend {
   display: block;
@@ -73,8 +76,4 @@ legend {
 fieldset {
   border-width: 0;
   padding: 0;
-}
-input[type='checkbox'],
-input[type='radio'] {
-  display: inline;
 }

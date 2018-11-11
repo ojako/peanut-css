@@ -1,4 +1,10 @@
 :root {
+  /* Root Colours */
+  @include define-vars((
+    base-foreground: v(dark),
+    base-background: white,
+  ));
+
   /* Padding and Margins */
   @include define-vars((
     base-padding:   v(base-padding-v) v(base-padding-h),
@@ -43,7 +49,7 @@
   /* Borders */
   @include define-vars((
     base-border-width: 1px,
-    base-radius: 2px,
+    base-radius: 1px,
   ));
 
   /* Type */
