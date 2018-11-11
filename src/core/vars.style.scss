@@ -10,16 +10,22 @@
 
   /* Brand */
   @include define-vars((
-    brand-primary:   #4f7263,
-    brand-secondary: #85b980,
+    brand-primary:           #4f7263,
+    brand-primary-highlight:   v(brand-primary),
+    brand-secondary:         #85b980,
+    brand-secondary-highlight: v(brand-secondary),
   ));
 
   /* Informative Colours */
   @include define-vars((
-    brand-success: #76b371,
-    brand-info:    #8fc5d3,
-    brand-danger:  #ec6666,
-    brand-warning: #f1a93c,
+    brand-success:         #76b371,
+    brand-success-highlight: v(brand-success),
+    brand-info:            #8fc5d3,
+    brand-info-highlight:    v(brand-info),
+    brand-danger:          #ec6666,
+    brand-danger-highlight:  v(brand-danger),
+    brand-warning:         #f1a93c,
+    brand-warning-highlight: v(brand-warning),
   ));
 
   /* Shade */
@@ -49,16 +55,15 @@
 
   /* Font Colours */
   @include define-vars((
-    base-font-color: #999,
-    text-grey:       #888,
+    base-font-color: v(grey-dark),
   ));
 
   /* Buttons and Links */
   @include define-vars((
     link-color:         rgb(105, 104, 175),
-    btn-background:     white,
-    btn-border-color:   rgba(245, 245, 245, .8),
-    btn-color:          v(base-font-color),
+    btn-background:     v(grey-lightest),
+    btn-border-color:   v(grey),
+    btn-color:          v(grey-darkest),
     btn-padding-v:      .5rem,
     btn-padding-h:      1.5rem,
     btn-padding:        v(btn-padding-v) v(btn-padding-h),
