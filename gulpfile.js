@@ -20,17 +20,16 @@ const sassLint = require('gulp-sass-lint');
 const version = require('gulp-version-number');
 const ts = require('gulp-typescript');
 const uglify = require('gulp-uglify');
+const autoprefixer = require('autoprefixer');
 
 // Files to be processed
 const paths = {
   generatedFiles: {
     glob: [
       'dist/**/*',
-      // 'index.html',
     ],
     src: [
       'dist',
-      // 'index.html',
     ],
   },
   styles: {
@@ -81,6 +80,7 @@ gulp.task('minify', () =>
 gulp.task('postcss', () => {
   const processors = [
     // cssNext,
+    autoprefixer,
     cssNano,
   ]
 
@@ -94,16 +94,6 @@ gulp.task('postcss', () => {
     .pipe(gulp.dest(paths.styles.dest))
   }
 );
-
-// Compile SCSS
-// gulp.task('sass', () =>
-//   gulp
-//     .src(paths.styles.glob)
-//     .pipe(sourcemaps.init())
-//     .pipe(sass().on('error', sass.logError))
-//     .pipe(sourcemaps.write(paths.styles.dest))
-//     .pipe(gulp.dest(paths.styles.dest))
-// );
 
 // Lint SCSS
 gulp.task('sass-lint', () =>
@@ -149,15 +139,8 @@ gulp.task('watch', () =>
     )
   );
 
-// gulp.task('version', () => {
-//   gulp
-//     .pipe(gulp.dest('build'))
-//   });
-
 // Browser sync
 gulp.task('sync', () => {
-  // gulp
-  //   .series('dev')
   browserSync.init({
     server: {
       baseDir: './'
@@ -190,8 +173,6 @@ gulp.task('sync', () => {
 //     )
 // );
 
-// gulp.task('createImage',)
-
 // Quick build for dev
 gulp.task('dev',
   gulp
@@ -200,7 +181,6 @@ gulp.task('dev',
       'postcss',
       'views',
       'scripts',
-      // 'minify',
     )
 );
 
