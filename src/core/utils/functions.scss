@@ -13,8 +13,9 @@ $default-prefix: '--';
   @return var(--#{$pn-prefix}#{$var});
 };
 
-// Construct a new component class
-@mixin class-constructor($name) {
+// Construct a new component
+// class with prefix
+@mixin c($name) {
   .#{$pn-prefix}#{$name} {
     @content;
   }

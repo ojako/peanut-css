@@ -1,23 +1,23 @@
-.alert {
+@include c(alert) {
   background: v(grey-lighter);
   border: 5px solid rgba(255, 255, 255, .5);
   box-shadow: inset 2rem -2rem 15rem 0 rgba(255, 255, 255, .2), inset -2rem 2rem 15rem 0 rgba(255, 255, 255, .1);
   margin-bottom: v(base-margin-d);
   padding: v(base-padding);
 
-  &.alert-success {
+  &._success {
     background: v(brand-success);
   }
 
-  &.alert-info {
+  &._info {
     background: v(brand-info);
   }
 
-  &.alert-danger {
+  &._danger {
     background: v(brand-danger);
   }
 
-  &.alert-warning {
+  &._warning {
     background: v(brand-warning);
   }
 }
