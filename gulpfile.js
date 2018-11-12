@@ -21,6 +21,8 @@ const version = require('gulp-version-number');
 const ts = require('gulp-typescript');
 const uglify = require('gulp-uglify');
 const autoprefixer = require('autoprefixer');
+const browserify = require('gulp-browserify');
+const importCSS = require("postcss-import")
 
 // Files to be processed
 const paths = {
@@ -80,6 +82,7 @@ gulp.task('minify', () =>
 gulp.task('postcss', () => {
   const processors = [
     // cssNext,
+    importCSS,
     autoprefixer,
     cssNano,
   ]
@@ -121,6 +124,10 @@ gulp.task('scripts', () =>
     .src(paths.scripts.src)
     .pipe(newer(paths.scripts.dest))
     .pipe(ts())
+    .pipe(browserify({
+      insertGlobals : true,
+        // debug : !gulp.env.production
+      }))
     .pipe(uglify())
     .pipe(rename('app.min.js'))
     .pipe(gulp.dest(paths.scripts.dest))

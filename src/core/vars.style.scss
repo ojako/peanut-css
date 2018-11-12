@@ -1,5 +1,5 @@
 :root {
-  /* Root Colours */
+  /* Root UI Colours */
   @include define-vars((
     base-foreground: v(dark),
     base-background: white,
@@ -66,7 +66,7 @@
 
   /* Buttons and Links */
   @include define-vars((
-    link-color:         rgb(105, 104, 175),
+    link-color:         rebeccapurple,
     btn-background:     v(grey-lightest),
     btn-border-color:   v(grey-lighter),
     btn-color:          v(base-font-color),

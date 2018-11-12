@@ -51,7 +51,10 @@ html(lang='en')
       include views/includes/misc.pug
 
   // Component scripts
-  script(src='dist/demo/app.min.js')
+  //- script(src="#{relativeBase}highlightjs/highlight.pack.min.js")
+  //- script(src='#{relativeBase}dist/demo/app.min.js')
+  script(src="../../node_modules/highlightjs/highlight.pack.min.js")
+  script(src='app.min.js')
   script.
     // Highlight code blocks
     hljs.initHighlightingOnLoad();
