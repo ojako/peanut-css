@@ -1,5 +1,4 @@
 .cnt {
-  /*  display: block;*/
   max-width: v(screen-max);
   padding: 0 v(base-padding);
 
@@ -8,7 +7,6 @@
   }
 
   &.cnt-centre {
-    /* display: inline-block; */
     margin: 0 auto;
   }
 
