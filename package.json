@@ -16,6 +16,7 @@
     "serve": "gulp sync",
     "build": "gulp dev",
     "setup": "npm install",
+    "test": "gulp test",
     "phantomjs": "node_modules/phantomjs/bin/phantomjs",
     "gemini": "node_modules/gemini/bin/gemini",
     "lint-fix": "sass-lint-auto-fix"

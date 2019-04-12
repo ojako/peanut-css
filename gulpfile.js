@@ -120,7 +120,8 @@ gulp.task('views', () =>
 
 // Run tests
 gulp.task('test', () => {
-  return
+  gulp
+    .src()
 })
 
 // Typescript
