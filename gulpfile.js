@@ -118,12 +118,6 @@ gulp.task('views', () =>
     .pipe(gulp.dest(paths.templates.dest))
 );
 
-// Run tests
-gulp.task('test', () => {
-  gulp
-    .src()
-})
-
 // Typescript
 gulp.task('scripts', () =>
   gulp
