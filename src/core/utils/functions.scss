@@ -1,21 +1,32 @@
-$pn-prefix: 'pn-';
-$default-prefix: '--';
+// Prefix all classes.
+$prefix: 'pn-';
 
-// Generate a set of variables
-@mixin define-vars($vars: ()) {
-  @each $name, $value in $vars {
-    #{$default-prefix}#{$pn-prefix}#{$name}: $value;
+// Class namespaces.
+$types: (
+  utility: 'u-',
+  object: 'o-',
+  component: 'c-',
+  theme: 't-',
+  is: 'is-',
+  has: 'has-'
+);
+
+// Construct a new component class.
+@mixin class($type, $name) {
+  .#{$pn-prefix}#{map-get($types, $type)}#{$name} {
+    @content;
   }
 };
 
-// Use library var
+// Use library var.
 @function v($var) {
   @return var(--#{$pn-prefix}#{$var});
 };
 
-// Construct a new component class
-@mixin class-constructor($name) {
-  .#{$pn-prefix}#{$name} {
-    @content;
+// Generate a set of custom properties..
+@mixin define-vars($vars: ()) {
+  @each $name, $value in $vars {
+    --#{$pn-prefix}#{$name}: $value;
   }
 };
+
