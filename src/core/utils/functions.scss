@@ -31,3 +31,22 @@ $types: (
   }
 };
 
+// Responsive
+$media-types: (
+  phone: '(max-width: 480px)',
+  tablet-portrait: '(max-width: 767px)',
+  tablet-landscape-desktop: '(min-width: 768px) and (max-width: 979px)',
+  large-desktop: '(min-width: 1200px)',
+  non-retina: 'screen and (-webkit-max-device-pixel-ratio: 1)',
+  retina: 'screen and (-webkit-min-device-pixel-ratio: 2)',
+);
+
+// Target media
+@mixin media($media) {
+    @if not map-contains($media-types, $media) {
+      $media: large-desktop;
+    }
+    @media #{map-get($media-types, $media)} {
+        @content;
+    }
+}
