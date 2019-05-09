@@ -1,32 +1,33 @@
 // Prefix all classes.
-$prefix: 'pn-';
+$pn-prefix: 'pn-';
+$var-prefix: '--';
 
 // Class namespaces.
 $types: (
-  utility: 'u-',
-  object: 'o-',
-  component: 'c-',
-  theme: 't-',
-  is: 'is-',
-  has: 'has-'
+  utility:    'u-',
+  object:     'o-',
+  component:  'c-',
+  theme:      't-',
+  is:         'is-',
+  has:        'has-'
 );
 
 // Construct a new component class.
 @mixin class($type, $name) {
-  .#{$pn-prefix}#{map-get($types, $type)}#{$name} {
+  .#{$var-prefix}#{map-get($types, $type)}#{$name} {
     @content;
   }
 };
 
 // Use library var.
 @function v($var) {
-  @return var(--#{$pn-prefix}#{$var});
+  @return var(#{$var-prefix}#{$pn-prefix}#{$var});
 };
 
 // Generate a set of custom properties..
 @mixin define-vars($vars: ()) {
   @each $name, $value in $vars {
-    --#{$pn-prefix}#{$name}: $value;
+    #{$var-prefix}#{$pn-prefix}#{$name}: $value;
   }
 };
 

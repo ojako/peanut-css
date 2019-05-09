@@ -1,5 +1,5 @@
 /* global require */
-/*jslint node:true */
+/* eslint-env es6 */
 'use strict';
 
 const gulp = require('gulp');
@@ -22,7 +22,7 @@ const ts = require('gulp-typescript');
 const uglify = require('gulp-uglify');
 const autoprefixer = require('autoprefixer');
 const browserify = require('gulp-browserify');
-const importCSS = require("postcss-import")
+const importCSS = require("postcss-import");
 
 // Files to be processed
 const paths = {
@@ -147,6 +147,7 @@ gulp.task('watch', () =>
         paths.styles.glob,
         paths.templates.glob,
         paths.scripts.glob,
+        paths.scripts.index,
       ],
       gulp.series('dev')
     )
@@ -172,9 +173,13 @@ gulp.task('sync', () => {
     )
 
   gulp
-    .watch(paths.generatedFiles.glob)
+    .watch([
+      paths.generatedFiles.glob,
+      paths.index
+    ])
     .on('change', browserSync.reload);
-  })
+  }
+)
 
 // gulp.task('version',
 //   gulp
