@@ -9,6 +9,8 @@ $brand-colours: 'primary', 'success', 'danger', 'warning', 'info';
   display: inline-block;
   font-size: 1rem;
   font-weight: lighter;
+  text-decoration: none;
+  line-height: 1;
   margin-bottom: v(base-margin-d);
   outline: none;
   padding: v(btn-padding);
@@ -54,7 +56,7 @@ $brand-colours: 'primary', 'success', 'danger', 'warning', 'info';
 }
 
 /* Links */
-a,
+a:not(.btn),
 .link,
 .btn-link {
   background: none;
