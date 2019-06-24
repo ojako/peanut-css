@@ -1,0 +1,5 @@
+rootUrl: http://localhost:3000
+browsers:
+  PhantomJS:
+    desiredCapabilities:
+      browserName: phantomjs

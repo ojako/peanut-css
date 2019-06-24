@@ -1,35 +1,43 @@
 .visible {
-
+  visibility: visible;
 }
+
 .hidden {
+  visibility: hidden;
+}
 
-}
-@media (max-width: var(--screen-sm)) {
+// @media (max-width: v(screen-sm)) {
 
-}
-@media (max-width: var(--screen-sm)) {
+// }
+// @media (max-width: v(screen-sm)) {
 
-}
-@media (max-width: var(--screen-sm)) {
+// }
+// @media (max-width: v(screen-sm)) {
 
-}
-@media (max-width: var(--screen-sm)) {
+// }
+// @media (max-width: v(screen-sm)) {
 
-}
-.visible-sm {
-}
-.visible-md {
+// }
 
-}
-.visible-lg {
+// .visible-sm {
+// }
 
-}
-.hidden-sm {
+// .visible-md {
 
-}
-.hidden-md {
+// }
 
-}
-.hidden-lg {
+// .visible-lg {
 
-}
+// }
+
+// .hidden-sm {
+
+// }
+
+// .hidden-md {
+
+// }
+
+// .hidden-lg {
+
+// }

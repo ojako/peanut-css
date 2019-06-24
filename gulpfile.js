@@ -5,6 +5,9 @@
 const gulp = require('gulp');
 const watch = require('gulp-watch');
 const cleanCSS = require('gulp-clean-css');
+const postCSS = require('gulp-postcss');
+const cssNext = require('postcss-cssnext');
+const cssNano = require('cssnano');
 const sourcemaps = require('gulp-sourcemaps');
 const sass = require('gulp-sass');
 const pug = require('gulp-pug');
@@ -13,32 +16,42 @@ const del = require('del');
 const zip = require('gulp-zip');
 const newer = require('gulp-newer');
 const browserSync = require('browser-sync').create();
+const sassLint = require('gulp-sass-lint');
+const version = require('gulp-version-number');
+const ts = require('gulp-typescript');
+const uglify = require('gulp-uglify');
+const autoprefixer = require('autoprefixer');
+const browserify = require('gulp-browserify');
+const importCSS = require("postcss-import")
 
 // Files to be processed
 const paths = {
   generatedFiles: {
     glob: [
       'dist/**/*',
-      'index.html',
     ],
     src: [
       'dist',
-      'index.html',
     ],
   },
   styles: {
     glob: 'src/**/*.scss',
-    src: 'src',
+    src: 'src/peanut.scss',
     dest: 'dist',
   },
+  scripts: {
+    glob: 'demo/**/*.ts',
+    src: 'demo/**/*.ts',
+    dest: 'dist/demo',
+  },
   templates: {
-    glob: 'templates/**/*.pug',
-    src: 'templates/index.pug',
-    dest: './',
+    glob: 'demo/**/*.pug',
+    src: 'demo/index.pug',
+    dest: 'dist/demo',
   },
 }
 
-// Kill generated files
+// Destroy generated files
 gulp.task('clean', () =>
   del(paths.generatedFiles.src)
 );
@@ -66,14 +79,32 @@ gulp.task('minify', () =>
     .pipe(gulp.dest(paths.styles.dest), ['default'])
 );
 
-// Compile SCSS
-gulp.task('sass', () =>
+gulp.task('postcss', () => {
+  const processors = [
+    // cssNext,
+    importCSS,
+    autoprefixer,
+    cssNano,
+  ]
+
+  return gulp
+    .src(paths.styles.src)
+    // .pipe(sourcemaps.init())
+    .pipe(sass().on('error', sass.logError))
+    // .pipe(sourcemaps.write(paths.styles.dest))
+    .pipe(postCSS(processors))
+    .pipe(rename('peanut.min.css'))
+    .pipe(gulp.dest(paths.styles.dest))
+  }
+);
+
+// Lint SCSS
+gulp.task('sass-lint', () =>
   gulp
     .src(paths.styles.glob)
-    .pipe(sourcemaps.init())
-    .pipe(sass().on('error', sass.logError))
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest(paths.styles.dest))
+    .pipe(sassLint())
+    .pipe(sassLint.format())
+    .pipe(sassLint.failOnError())
 );
 
 // Compile pug
@@ -87,6 +118,27 @@ gulp.task('views', () =>
     .pipe(gulp.dest(paths.templates.dest))
 );
 
+// Run tests
+gulp.task('test', () => {
+  gulp
+    .src()
+})
+
+// Typescript
+gulp.task('scripts', () =>
+  gulp
+    .src(paths.scripts.src)
+    .pipe(newer(paths.scripts.dest))
+    .pipe(ts())
+    .pipe(browserify({
+      insertGlobals : true,
+        // debug : !gulp.env.production
+      }))
+    .pipe(uglify())
+    .pipe(rename('app.min.js'))
+    .pipe(gulp.dest(paths.scripts.dest))
+);
+
 // Watch files
 gulp.task('watch', () =>
   gulp
@@ -94,10 +146,11 @@ gulp.task('watch', () =>
       [
         paths.styles.glob,
         paths.templates.glob,
+        paths.scripts.glob,
       ],
       gulp.series('dev')
     )
-);
+  );
 
 // Browser sync
 gulp.task('sync', () => {
@@ -109,7 +162,11 @@ gulp.task('sync', () => {
 
   gulp
     .watch(
-      [paths.styles.glob, paths.templates.glob],
+      [
+        paths.styles.glob,
+        paths.templates.glob,
+        paths.scripts.glob,
+      ],
       gulp
         .series('dev')
     )
@@ -117,15 +174,26 @@ gulp.task('sync', () => {
   gulp
     .watch(paths.generatedFiles.glob)
     .on('change', browserSync.reload);
-})
+  })
+
+// gulp.task('version',
+//   gulp
+//     .series(
+//       'default',
+//       'createImage',
+//       'vTest',
+//       'fTest'
+//     )
+// );
 
 // Quick build for dev
 gulp.task('dev',
   gulp
     .series(
+      'sass-lint',
+      'postcss',
       'views',
-      'sass',
-      'minify',
+      'scripts',
     )
 );
 
@@ -134,8 +202,6 @@ gulp.task('default',
   gulp
     .series(
       'clean',
-      'views',
-      'sass',
-      'minify',
+      'dev',
     )
 );

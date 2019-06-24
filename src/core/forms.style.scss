@@ -1,77 +1,79 @@
 /* Applies some margins around a group of objects */
-label > input[type="email"],
-label > input[type="number"],
-label > input[type="search"],
-label > input[type="text"],
-label > input[type="tel"],
-label > input[type="url"],
-label > input[type="password"],
-label > textarea,
-label > select {
-  margin-top: var(--base-margin-d);
+input {
+  [type='email'],
+  [type='number'],
+  [type='search'],
+  [type='text'],
+  [type='tel'],
+  [type='url'],
+  [type='password'] {
+    appearance: none;
+    background-color: #fff;
+    border: v(base-border-width) solid v(grey-light);
+    border-radius: v(base-radius);
+    box-shadow: none;
+    box-sizing: border-box;
+    display: block;
+    padding: v(base-padding);
+  }
+
+  [type='checkbox'],
+  [type='radio'] {
+    display: inline;
+  }
 }
 
-input[type="email"],
-input[type="number"],
-input[type="search"],
-input[type="text"],
-input[type="tel"],
-input[type="url"],
-input[type="password"],
+label {
+  > input {
+    [type='email'],
+    [type='number'],
+    [type='search'],
+    [type='text'],
+    [type='tel'],
+    [type='url'],
+    [type='password'] {
+      margin-top: v(base-margin-d);
+    }
+
+    &:focus {
+      border: v(base-border-width) solid v(brand-primary);
+      outline: 0;
+    }
+  }
+
+  > textarea,
+  > select {
+    margin-top: v(base-margin-d);
+  }
+}
+
 textarea,
 select {
   appearance: none;
-  padding: var(--base-padding);
   background-color: #fff;
-  border:
-    var(--base-border-width)
-    solid
-    var(--grey-light)
-  ;
-  border-radius: var(--base-radius);
-  display: block;
+  border: v(base-border-width) solid v(grey-light);
+  border-radius: v(base-radius);
   box-shadow: none;
   box-sizing: border-box;
+  display: block;
+  padding: v(base-padding);
 }
+
 textarea {
-  min-height: 10rem;
   display: block;
   max-width: 50%;
+  min-height: 10rem;
   min-width: 30em;
 }
-input[type="email"]:focus,
-input[type="number"]:focus,
-input[type="search"]:focus,
-input[type="text"]:focus,
-input[type="tel"]:focus,
-input[type="url"]:focus,
-input[type="password"]:focus,
-textarea:focus,
-select:focus {
-  border:
-    var(--base-border-width)
-    solid
-    var(--brand-primary)
-  ;
-  outline: 0;
-}
+
 label,
 legend {
   display: block;
-  margin-bottom: var(--base-margin-d);
-  /* margin-bottom: var(--base-margin-d); */
-  font-weight: var(--font-weight-heavy);
+  font-weight: v(font-weight-heavy);
+  margin-bottom: v(base-margin-d);
 }
+
 fieldset {
-  padding: 0;
   border-width: 0;
+  padding: 0;
 }
-input[type="checkbox"],
-input[type="radio"] {
-  display: inline;
-}
-/* label > .label-body {
-  display: inline-block;
-  margin-left: .5rem;
-  font-weight: normal;
-} */

@@ -1,0 +1,13 @@
+{
+    "settings": {
+        "editor.tabSize": 2,
+        "editor.renderWhitespace": "all",
+        "files.insertFinalNewline": true,
+        "files.trimTrailingWhitespace": true,
+    },
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+}

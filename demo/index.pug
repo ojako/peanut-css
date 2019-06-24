@@ -1,0 +1,59 @@
+- var relativeBase = "../"
+- var npm = 'node_modules/'
+
+doctype html
+html(lang='en')
+
+  head
+    meta(charset='UTF-8')
+    meta(
+      name='viewport'
+      content='width=device-width, initial-scale=1.0'
+    )
+    meta(
+      http-equiv='X-UA-Compatible'
+      content='ie=edge'
+    )
+    title Peanut CSS
+    // Core dist
+    link(rel='stylesheet' href='../peanut.min.css')
+    link(rel='stylesheet' href="https://fonts.googleapis.com/css?family=Catamaran|Dosis|Lora|Quattrocento+Sans|Libre+Baskerville")
+    //- link#themeStyle(rel='stylesheet' href="../../themes/pn-theme-dark.css")
+
+  body
+
+    // Header
+    include views/includes/header.pug
+
+    main.page
+
+      // Type
+      include views/includes/type.pug
+
+      // Buttons
+      include views/includes/buttons.pug
+
+      // Dropdowns
+      include views/includes/dropdowns.pug
+
+      // Forms
+      include views/includes/forms.pug
+
+      // Tables
+      include views/includes/tables.pug
+
+      // Grid
+      include views/includes/grid.pug
+
+      // Cards
+      include views/includes/cards.pug
+
+      // Miscs
+      include views/includes/misc.pug
+
+  // Component scripts
+  script(src="../../node_modules/highlightjs/highlight.pack.min.js")
+  script(src='app.min.js')
+  script.
+    // Highlight code blocks
+    hljs.initHighlightingOnLoad();
