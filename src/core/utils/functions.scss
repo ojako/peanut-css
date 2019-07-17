@@ -1,37 +1,30 @@
-// Prefix all classes.
-$pn-prefix: 'pn-';
-$var-prefix: '--';
+// Quick Options.
+$use-namespacing: false;
+$use-prefix: false;
+
+// Settings
+$default-prefix: 'pn-';
+// $class-prefix: $default-prefix;
+// $prop-prefix: $default-prefix;
 
 // Class namespaces.
-$types: (
-  utility:    'u-',
-  object:     'o-',
-  component:  'c-',
-  theme:      't-',
-  is:         'is-',
-  has:        'has-'
+$namespaces: (
+  // Utility
+  u: 'u-',
+  // Object
+  o: 'o-',
+  // Component
+  c: 'c-',
+  // Theme Settings
+  t: 't-',
+  // Javascript Hook
+  j: 'js-',
+  // Is/Has
+  i: 'is-',
+  h: 'has-',
 );
 
-// Construct a new component class.
-@mixin class($type, $name) {
-  .#{$var-prefix}#{map-get($types, $type)}#{$name} {
-    @content;
-  }
-};
-
-// Use library var.
-@function v($var) {
-  @return var(#{$var-prefix}#{$pn-prefix}#{$var});
-};
-
-// Generate a set of custom properties..
-@mixin define-vars($vars: ()) {
-  @each $name, $value in $vars {
-    #{$var-prefix}#{$pn-prefix}#{$name}: $value;
-  }
-};
-
-// Responsive
+// Responsive Targets
 $media-types: (
   phone: '(max-width: 480px)',
   tablet-portrait: '(max-width: 767px)',
@@ -43,10 +36,50 @@ $media-types: (
 
 // Target media
 @mixin media($media) {
-    @if not map-contains($media-types, $media) {
-      $media: large-desktop;
-    }
-    @media #{map-get($media-types, $media)} {
-        @content;
-    }
-}
+  @if not map-contains($media-types, $media) {
+    $media: large-desktop;
+  }
+
+  @media #{map-get($media-types, $media)} {
+      @content;
+  }
+};
+
+@function c($type, $name) {
+  $class: $name;
+
+  @if ($use-namespacing) {$class: map-get($namespaces, $type) + $class}
+  @if ($use-prefix) {$class: $default-prefix + $class}
+
+  @return '.#{$class}'
+};
+
+// Construct a new class.
+@mixin c($type, $name) {
+ #{c($type, $name)} {
+    @content;
+  }
+};
+
+// Custom Property
+@function prop-prefix() {
+  $prefix: '--';
+
+  @if ($use-prefix) {$prefix: $prefix + $default-prefix}
+
+  @return $prefix;
+};
+
+// Use library var.
+@function v($name) {
+  // $name: $name;
+  // @if ($use-prefix) {$name: $prop-prefix + $name}
+  @return var(#{prop-prefix()}#{$name});
+};
+
+// Generate a set of custom properties.
+@mixin define-props($props: ()) {
+  @each $name, $value in $props {
+    #{prop-prefix()}#{$name}: $value;
+  }
+};

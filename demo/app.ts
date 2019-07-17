@@ -65,13 +65,12 @@ app.factory('comments', (
 }))
 
 class AppMainController {
-  constructor() {
+  theme: string | undefined
+  bodyClass: 't-light'
 
-  }
+  constructor() { }
 }
 ng.component('appMain', {
   controller: AppMainController,
-  template: `
-  <h1>Hello there</h1>
-  `,
+  template: `<h1>Hello there</h1>`,
 })

@@ -80,11 +80,12 @@ gulp.task('minify', () =>
 );
 
 gulp.task('postcss', () => {
+  const minify = [
+    cssNano,
+  ]
   const processors = [
-    // cssNext,
     importCSS,
     autoprefixer,
-    cssNano,
   ]
 
   return gulp
@@ -93,6 +94,9 @@ gulp.task('postcss', () => {
     .pipe(sass().on('error', sass.logError))
     // .pipe(sourcemaps.write(paths.styles.dest))
     .pipe(postCSS(processors))
+    .pipe(rename('peanut.css'))
+    .pipe(gulp.dest(paths.styles.dest))
+    .pipe(postCSS(minify))
     .pipe(rename('peanut.min.css'))
     .pipe(gulp.dest(paths.styles.dest))
   }
@@ -134,6 +138,8 @@ gulp.task('scripts', () =>
       insertGlobals : true,
         // debug : !gulp.env.production
       }))
+    .pipe(rename('app.js'))
+    .pipe(gulp.dest(paths.scripts.dest))
     .pipe(uglify())
     .pipe(rename('app.min.js'))
     .pipe(gulp.dest(paths.scripts.dest))
@@ -175,7 +181,7 @@ gulp.task('sync', () => {
   gulp
     .watch([
       paths.generatedFiles.glob,
-      paths.index
+      'index.html'
     ])
     .on('change', browserSync.reload);
   }
