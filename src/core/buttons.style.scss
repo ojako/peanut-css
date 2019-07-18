@@ -14,14 +14,16 @@ $class-group: 'btn';
   outline: none;
   padding: v(btn-padding);
   text-align: center; /* Required to counter effects of whitespace hack */
-  transition: .5s box-shadow, .2s border-color;
+  transition:
+    .5s box-shadow
+    ,.2s border-color;
 
   &:hover {
     // background-image: #{$trans-black-5};
     // background-repeat: repeat;
-    text-decoration: none;
     background-image: v(trans-black-5);
     cursor: pointer;
+    text-decoration: none;
   }
 
   // Generate button styles
@@ -30,7 +32,7 @@ $class-group: 'btn';
       background: v(brand-#{$item});
       border-color: v(brand-#{$item}-highlight);
       color: #fff;
-  
+
       &:hover {
         background-color: v(brand-#{$item});
       }
@@ -50,9 +52,9 @@ $class-group: 'btn';
 }
 
 /* Links */
-a,
-.link,
-.btn-link {
+a
+,.link
+,.btn-link {
   background: none;
   border: 0;
   color: v(link-color);
@@ -72,15 +74,11 @@ a,
   padding: v(base-padding);
 }
 
-
-
-@include c(o, btn-group) {
-  
-}
+// @include c(o, btn-group) { }
 
 /* Group buttons together visually */
-.btn-group,
-.btn-group-v {
+.btn-group
+,.btn-group-v {
   display: inline-block;
   font-size: 0;
   margin-bottom: v(base-margin-d); /* Hack to remove whitespace */
