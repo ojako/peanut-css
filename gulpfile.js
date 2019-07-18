@@ -1,5 +1,5 @@
 /* global require */
-/*jslint node:true */
+/* eslint-env es6 */
 'use strict';
 
 const gulp = require('gulp');
@@ -22,7 +22,7 @@ const ts = require('gulp-typescript');
 const uglify = require('gulp-uglify');
 const autoprefixer = require('autoprefixer');
 const browserify = require('gulp-browserify');
-const importCSS = require("postcss-import")
+const importCSS = require("postcss-import");
 
 // Files to be processed
 const paths = {
@@ -80,11 +80,12 @@ gulp.task('minify', () =>
 );
 
 gulp.task('postcss', () => {
+  const minify = [
+    cssNano,
+  ]
   const processors = [
-    // cssNext,
     importCSS,
     autoprefixer,
-    cssNano,
   ]
 
   return gulp
@@ -93,6 +94,9 @@ gulp.task('postcss', () => {
     .pipe(sass().on('error', sass.logError))
     // .pipe(sourcemaps.write(paths.styles.dest))
     .pipe(postCSS(processors))
+    .pipe(rename('peanut.css'))
+    .pipe(gulp.dest(paths.styles.dest))
+    .pipe(postCSS(minify))
     .pipe(rename('peanut.min.css'))
     .pipe(gulp.dest(paths.styles.dest))
   }
@@ -134,6 +138,8 @@ gulp.task('scripts', () =>
       insertGlobals : true,
         // debug : !gulp.env.production
       }))
+    .pipe(rename('app.js'))
+    .pipe(gulp.dest(paths.scripts.dest))
     .pipe(uglify())
     .pipe(rename('app.min.js'))
     .pipe(gulp.dest(paths.scripts.dest))
@@ -147,6 +153,7 @@ gulp.task('watch', () =>
         paths.styles.glob,
         paths.templates.glob,
         paths.scripts.glob,
+        paths.scripts.index,
       ],
       gulp.series('dev')
     )
@@ -172,9 +179,13 @@ gulp.task('sync', () => {
     )
 
   gulp
-    .watch(paths.generatedFiles.glob)
+    .watch([
+      paths.generatedFiles.glob,
+      'index.html'
+    ])
     .on('change', browserSync.reload);
-  })
+  }
+)
 
 // gulp.task('version',
 //   gulp

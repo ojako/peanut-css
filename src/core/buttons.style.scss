@@ -1,7 +1,8 @@
 $brand-colours: 'primary', 'success', 'danger', 'warning', 'info';
+$class-group: 'btn';
 
 /* Buttons */
-.btn {
+@include c(c, $class-group) {
   background: v(btn-background);
   border: v(base-border-width) solid v(btn-border-color);
   border-radius: v(base-radius);
@@ -13,50 +14,47 @@ $brand-colours: 'primary', 'success', 'danger', 'warning', 'info';
   outline: none;
   padding: v(btn-padding);
   text-align: center; /* Required to counter effects of whitespace hack */
-  transition: .5s box-shadow, .2s border-color;
+  transition:
+    .5s box-shadow
+    ,.2s border-color;
 
   &:hover {
     // background-image: #{$trans-black-5};
     // background-repeat: repeat;
     background-image: v(trans-black-5);
     cursor: pointer;
+    text-decoration: none;
   }
-}
 
-// Generate button styles
-@each $item in $brand-colours {
-  #{'.btn-' + $item} {
-    background: v(brand-#{$item});
-    border-color: v(brand-#{$item}-highlight);
-    color: #fff;
+  // Generate button styles
+  @each $item in $brand-colours {
+    &__#{$item} {
+      background: v(brand-#{$item});
+      border-color: v(brand-#{$item}-highlight);
+      color: #fff;
 
-    &:hover {
-      background-color: v(brand-#{$item});
+      &:hover {
+        background-color: v(brand-#{$item});
+      }
     }
   }
-}
 
-/* Sizing */
-.btn-lg {
-  padding: 2rem;
-}
+  // Emphasis on a single button
+  // &__emphasis {
+  //   box-shadow: rgba(0, 0, 0, 0.5) 0 0 .25rem .25rem;
+  // }
 
-.btn-md {
-  padding: 1rem;
-}
-
-.btn-sm {
-  padding: .5rem;
-}
-
-.btn-xs {
-  padding: .25rem;
+  /* Sizing */
+  &__lg {padding: 2rem;}
+  &__md {padding: 1rem;}
+  &__sm {padding: .5rem;}
+  &__xs {padding: .25rem;}
 }
 
 /* Links */
-a,
-.link,
-.btn-link {
+a
+,.link
+,.btn-link {
   background: none;
   border: 0;
   color: v(link-color);
@@ -76,14 +74,11 @@ a,
   padding: v(base-padding);
 }
 
-// Emphasis on a single button
-.btn-emphasis {
-  box-shadow: inset 0 0 30rem 30rem;
-}
+// @include c(o, btn-group) { }
 
 /* Group buttons together visually */
-.btn-group,
-.btn-group-v {
+.btn-group
+,.btn-group-v {
   display: inline-block;
   font-size: 0;
   margin-bottom: v(base-margin-d); /* Hack to remove whitespace */
@@ -97,6 +92,8 @@ a,
     }
   }
 }
+
+
 
 .btn-group {
   > .btn {

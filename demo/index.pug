@@ -16,40 +16,44 @@ html(lang='en')
     )
     title Peanut CSS
     // Core dist
-    link(rel='stylesheet' href='../peanut.min.css')
-    link(rel='stylesheet' href="https://fonts.googleapis.com/css?family=Catamaran|Dosis|Lora|Quattrocento+Sans|Libre+Baskerville")
+    link(rel='stylesheet' type="text/css" href='../peanut.min.css')
+    link(rel='stylesheet' type="text/css" href="https://fonts.googleapis.com/css?family=Catamaran|Dosis|Lora|Quattrocento+Sans|Libre+Baskerville")
     //- link#themeStyle(rel='stylesheet' href="../../themes/pn-theme-dark.css")
 
-  body
-
+  body(ng-app="app")
     // Header
     include views/includes/header.pug
 
-    main.page
+    app-main
+      main.page
+        pre {{ $ctrl.bodyClass }}
+      
+        // Theme Controls
+        include views/includes/theme-control.pug
 
-      // Type
-      include views/includes/type.pug
+        // Type
+        include views/includes/type.pug
 
-      // Buttons
-      include views/includes/buttons.pug
+        // Buttons
+        include views/includes/buttons.pug
 
-      // Dropdowns
-      include views/includes/dropdowns.pug
+        // Dropdowns
+        include views/includes/dropdowns.pug
 
-      // Forms
-      include views/includes/forms.pug
+        // Forms
+        include views/includes/forms.pug
 
-      // Tables
-      include views/includes/tables.pug
+        // Tables
+        include views/includes/tables.pug
 
-      // Grid
-      include views/includes/grid.pug
+        // Grid
+        include views/includes/grid.pug
 
-      // Cards
-      include views/includes/cards.pug
+        // Cards
+        include views/includes/cards.pug
 
-      // Miscs
-      include views/includes/misc.pug
+        // Miscs
+        include views/includes/misc.pug
 
   // Component scripts
   script(src="../../node_modules/highlightjs/highlight.pack.min.js")
